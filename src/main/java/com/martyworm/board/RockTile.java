@@ -4,8 +4,8 @@ import com.martyworm.gfx.Assets;
 
 public class RockTile extends Tile{
 
-    public RockTile(int id) {
-        super(id, Assets.rockTile2);
+    public RockTile(int id, int xPosition, int yPosition) {
+        super(id, Assets.rockTile2, xPosition, yPosition);
 
     }
 

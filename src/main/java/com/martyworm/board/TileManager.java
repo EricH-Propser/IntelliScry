@@ -3,6 +3,7 @@ package com.martyworm.board;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import com.martyworm.entities.Entity;
 import com.martyworm.game.Game;
@@ -11,8 +12,8 @@ public class TileManager {
 
     private Game game;
     private Tile tile;
-    private ArrayList<Tile> tiles;
-    private ArrayList<Tile> semiHiTiles;
+    private List<Tile> tiles;
+    private List<Tile> semiHiTiles;
 
     //Making sure only one tile can be selected
     private Tile selectedTile;
@@ -142,7 +143,7 @@ public class TileManager {
         this.tile = tile;
     }
 
-    public ArrayList<Tile> getTiles() {
+    public List<Tile> getTiles() {
         return tiles;
     }
 
@@ -150,7 +151,7 @@ public class TileManager {
         this.tiles = tiles;
     }
 
-    public ArrayList<Tile> getSemiHiTiles() {
+    public List<Tile> getSemiHiTiles() {
         return semiHiTiles;
     }
 

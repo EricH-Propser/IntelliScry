@@ -37,7 +37,7 @@ public class Tile {
     private ClickListener clicker;
     private Game game;
 
-    public Tile(int id, BufferedImage[] images){
+    public Tile(int id, BufferedImage[] images, int xPosition, int yPosition){
 
         this.images = images;
         this.clicker = clicker;
@@ -51,13 +51,11 @@ public class Tile {
 
         this.image = image;
         this.id = id;
-        this.xPos = 0;
-        this.yPos = 0;
+        this.xPos = xPosition;
+        this.yPos = yPosition;
 
         //invisible rectangle for mouse/game interaction
-        hitBox = new Rectangle(xPos, yPos, height-1, width-1);
-
-
+        hitBox = new Rectangle(xPosition, yPosition, height-1, width-1);
     }
 
     public void tick(){
@@ -99,32 +97,13 @@ public class Tile {
         return xPos;
     }
 
-    public void setxPos(int xPos) {
-        this.xPos = xPos;
-    }
 
     public int getyPos() {
         return yPos;
     }
 
-    public void setyPos(int yPos) {
-        this.yPos = yPos;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public void setImage(BufferedImage image) {
-        this.image = image;
     }
 
     public Game getGame() {
@@ -173,8 +152,6 @@ public class Tile {
     }
 
     public Rectangle getHitBox() {
-        hitBox.x = xPos;
-        hitBox.y = yPos;
         return hitBox;
     }
 
@@ -188,13 +165,6 @@ public class Tile {
 
     public void setSemiHighlited(boolean hovering) {
         this.semiHighlited = hovering;
-    }
-
-    public void setPosition(int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
-        hitBox.x = xPos;
-        hitBox.y = yPos;
     }
 
     public boolean isHighlighted() {

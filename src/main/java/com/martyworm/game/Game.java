@@ -1,6 +1,7 @@
 package com.martyworm.game;
 
 import com.martyworm.board.Board;
+import com.martyworm.board.LoadingException;
 import com.martyworm.board.Tile;
 import com.martyworm.board.TileManager;
 import com.martyworm.config.PropertiesManager;
@@ -11,10 +12,12 @@ import com.martyworm.gfx.Assets;
 import com.martyworm.gui.Controller;
 import com.martyworm.gui.Gui;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Game implements Runnable {
@@ -37,7 +40,7 @@ public class Game implements Runnable {
 
     //Tiles
     private TileManager tileManager;
-    private ArrayList<Tile> tiles;
+    private List<Tile> tiles;
 
     //Mouse input
     private Controller controller;
@@ -57,7 +60,7 @@ public class Game implements Runnable {
 
     }
 
-    private void init(){ //initialize the game and starting pieces/tiles
+    private void init() throws LoadingException { //initialize the game and starting pieces/tiles
 
         gui = new Gui(controller, title, width, height);
         gui.getFrame().addMouseListener(controller);
@@ -70,7 +73,8 @@ public class Game implements Runnable {
         Assets.init();
 
         //initialize board
-        Board.initBoard(this.tiles);
+        String boardString = Board.loadBoard("worlds/world3.txt");
+        this.tiles = Board.initBoard(boardString);
 
 
         //Will be refactored eventually
@@ -127,7 +131,12 @@ public class Game implements Runnable {
 
     public void run(){
 
-        init();
+        try {
+            init();
+        } catch (LoadingException loadingException){
+            System.out.println("Unable to initialize game, loading exception: " + loadingException.getMessage());
+            return;
+        }
 
         int fps = 60;
         double timePerTick = 1000000000 / fps;
@@ -211,7 +220,7 @@ public class Game implements Runnable {
         this.entities = entities;
     }
 
-    public ArrayList<Tile> getTiles() {
+    public List<Tile> getTiles() {
         return tiles;
     }
 

@@ -12,7 +12,6 @@ public class TileManager {
 
     private Game game;
     private Tile tile;
-    private List<Tile> tiles;
     private List<Tile> semiHiTiles;
 
     //Making sure only one tile can be selected
@@ -32,12 +31,11 @@ public class TileManager {
     public TileManager(Game game){
         this.game = game;
         semiHiTiles = new ArrayList<Tile>();
-        tiles = game.getTiles();
     }
 
     public void tick(){
         //game calls this tick which in turn ticks each tile
-        for(Tile t : tiles){
+        for(Tile t : game.getTiles()){
             t.tick();
             getInput(t);
 
@@ -49,7 +47,7 @@ public class TileManager {
     public void render(Graphics g){
 
         //game calls this render which in turn renders each tile
-        for(Tile t : tiles){
+        for(Tile t : game.getTiles()){
             t.render(g);
         }
     }
@@ -71,7 +69,7 @@ public class TileManager {
 
     public Tile getSelectedTile(){
         //need to make sure not null when calling
-        for(Tile t : tiles){
+        for(Tile t : game.getTiles()){
             if(t.isSelected() && !t.isOccupied()){
                 return t;
             }
@@ -103,7 +101,7 @@ public class TileManager {
         if(game.getController().getHitBox().intersects(t.getHitBox())){//Hovering check could be questionable
             t.setHovering(true);
             if(game.getController().isLeftPressed()){//if mouse left clicked
-                for(Tile y : tiles){
+                for(Tile y : game.getTiles()){
                     y.setSelected(false);
                 }
                 t.setSelected(true);
@@ -141,14 +139,6 @@ public class TileManager {
 
     public void setMinion(Tile tile) {
         this.tile = tile;
-    }
-
-    public List<Tile> getTiles() {
-        return tiles;
-    }
-
-    public void setEntities(ArrayList<Tile> tiles) {
-        this.tiles = tiles;
     }
 
     public List<Tile> getSemiHiTiles() {

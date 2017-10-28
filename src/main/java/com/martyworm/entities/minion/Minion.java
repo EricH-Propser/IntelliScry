@@ -115,7 +115,7 @@ public class Minion extends Entity{
 
     public Tile getOccupiedTile(){
         if(isSelected){
-            for(Tile t : game.getTileManager().getTiles()){
+            for(Tile t : game.getTiles()){
                 if(t.isOccupied()){
                     return t;
                 }

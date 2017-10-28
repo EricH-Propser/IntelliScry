@@ -72,7 +72,7 @@ public abstract class Entity {
     }
 
     public Tile getOccupiedTileEnt(){
-        for(Tile t : game.getTileManager().getTiles()){
+        for(Tile t : game.getTiles()){
             if(t.getHitBox().contains(hitBox)){
                 return t;
             }
@@ -81,7 +81,7 @@ public abstract class Entity {
     }
 
     public Tile getTileByIdEnt(int num){
-        for(Tile t : game.getTileManager().getTiles()){
+        for(Tile t : game.getTiles()){
             if(t.getId() == num){
                 return t;
             }

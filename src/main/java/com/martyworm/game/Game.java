@@ -74,7 +74,7 @@ public class Game implements Runnable {
 
         //initialize board
         String boardString = Board.loadBoard("worlds/world3.txt");
-        this.tiles = Board.initBoard(boardString);
+        tiles = Board.initBoard(boardString);
 
 
         //Will be refactored eventually

@@ -225,7 +225,7 @@ public class EntityManager {
     }
     private Tile getOccupiedTile(Entity e){
 
-        for(Tile t : game.getTileManager().getTiles()) {
+        for(Tile t : game.getTiles()) {
             if (t.getHitBox().contains(e.getHitBox())) {
                 return t;
             }

@@ -31,8 +31,6 @@ public class Game implements Runnable {
 
     private BufferStrategy bs;
     private Graphics g;
-    private Board board;
-
 
     //Entities
     private EntityManager entityManager;
@@ -51,7 +49,6 @@ public class Game implements Runnable {
         this.width = width;
         this.height = height;
         this.title = title;
-        this.board = new Board(this);
         this.controller = new Controller();
         this.tiles = new ArrayList<Tile>();
         this.entities = new ArrayList<Entity>();
@@ -73,8 +70,8 @@ public class Game implements Runnable {
         Assets.init();
 
         //initialize board
-        String boardString = Board.loadBoard("worlds/world3.txt");
-        tiles = Board.initBoard(boardString);
+        String boardString = Board.loadBoardFile("worlds/world3.txt");
+        tiles = Board.loadTiles(boardString);
 
 
         //Will be refactored eventually

@@ -20,7 +20,10 @@ public class Player {
 
     //Mana
     private static final int PLAYER1_MANA_DISPLAY_SPOT_X = 154;
-    private static final int PLAYER1_MANA_DISPLAY_SPOT_Y = 842;
+    private static final int PLAYER1_MANA_DISPLAY_SPOT_Y = 848;
+    private static final int PLAYER2_MANA_DISPLAY_SPOT_X = 154;
+    private static final int PLAYER2_MANA_DISPLAY_SPOT_Y = 45;
+
     private int mana;
 
     private int id;
@@ -49,9 +52,17 @@ public class Player {
 
     public void render(Graphics g) {
         cardManager.render(g);
-        for (int i = 0; i < 6; i++) {
-            if (mana == i) {
-                g.drawImage(Assets.manaBubble[i], PLAYER1_MANA_DISPLAY_SPOT_X, PLAYER1_MANA_DISPLAY_SPOT_Y, null);
+        if(id == 1) {
+            for (int i = 0; i < 6; i++) {
+                if (mana == i) {
+                    g.drawImage(Assets.manaBubble[i], PLAYER1_MANA_DISPLAY_SPOT_X, PLAYER1_MANA_DISPLAY_SPOT_Y, null);
+                }
+            }
+        }else if (id == 2){
+            for (int i = 0; i < 6; i++) {
+                if (mana == i) {
+                    g.drawImage(Assets.manaBubble[i], PLAYER2_MANA_DISPLAY_SPOT_X, PLAYER2_MANA_DISPLAY_SPOT_Y, null);
+                }
             }
         }
     }

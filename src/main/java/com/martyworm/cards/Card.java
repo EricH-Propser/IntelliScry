@@ -36,7 +36,8 @@ public class Card{
     protected boolean casted = false;
 
     private int mana;
-    private int playerNumber;
+    protected int playerNumber;
+
 
     public Card(Handler handler, BufferedImage[] images, int id, int playerNumber){
         this.handler = handler;
@@ -61,18 +62,16 @@ public class Card{
 
     public void render(Graphics g){
 
-        if(playerNumber == 1) {
-            if (inHand || inActive) {
-                if (tapped) {
-                    g.drawImage(images[2], xPos, yPos, width, height, null);
-                } else {
-                    g.drawImage(images[1], xPos, yPos, width, height, null);
+        if (inHand || inActive) {
+            if (tapped) {
+                g.drawImage(images[2], xPos, yPos, width, height, null);
+            } else {
+                g.drawImage(images[1], xPos, yPos, width, height, null);
 
-                }
+            }
 
-                if (hovering) {
-                    g.drawImage(images[0], ZOOM_SPOT_X, ZOOM_SPOT_Y, null);
-                }
+            if (hovering) {
+                g.drawImage(images[0], ZOOM_SPOT_X, ZOOM_SPOT_Y, null);
             }
         }
 
@@ -108,7 +107,7 @@ public class Card{
         if(selected && hoveringOnRedTile()){
             cast(selectCastingTile());
             selected = false;
-            turnRedTilesOff();
+            turnRedTilesOff(playerNumber);
         }
 
     }
@@ -157,6 +156,8 @@ public class Card{
         return false;
     }
 
+
+
     public void toRemove(ArrayList<Card> list){
         list.remove(this);
     }
@@ -165,9 +166,9 @@ public class Card{
         return handler.getBattle().getTileManager().getSelectedTile();
     }
 
-    protected void turnTilesRed(){}
+    protected void turnTilesRed(int playerId){}
 
-    protected void turnRedTilesOff(){}
+    protected void turnRedTilesOff(int playerId){}
 
     //GETTERS AND SETTERS
 

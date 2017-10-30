@@ -75,11 +75,8 @@ public class Board {
         StringBuilder builder = new StringBuilder();
 
         try{
-
-            URL url = ClassLoader.getSystemClassLoader().getResource("worlds/world3.txt");
-            String filePath = url.getFile();
-            FileReader fr = new FileReader(filePath);
-            BufferedReader br = new BufferedReader(fr);
+            //Not sure why this needs to be the full path?
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Matt B\\IntelliScryVC3\\src\\main\\resources\\worlds\\world3.txt"));
             String line;
             while((line = br.readLine()) != null)
                 builder.append(line);

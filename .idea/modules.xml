@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IntelliScry.iml" filepath="$PROJECT_DIR$/.idea/modules/IntelliScry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IntelliScry_main.iml" filepath="$PROJECT_DIR$/.idea/modules/IntelliScry_main.iml" group="IntelliScry" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IntelliScry_test.iml" filepath="$PROJECT_DIR$/.idea/modules/IntelliScry_test.iml" group="IntelliScry" />
+    </modules>
+  </component>
+</project>

@@ -8,7 +8,7 @@ public abstract class UIObject {
 
     protected float x, y;
     protected int width, height;
-    protected Rectangle bounds;
+    protected Rectangle hitBox;
     protected boolean hovering = false;
 
     public UIObject(float x, float y, int width, int height){
@@ -16,7 +16,7 @@ public abstract class UIObject {
         this.y = y;
         this.width = width;
         this.height = height;
-        bounds = new Rectangle((int)x, (int)y, width, height);
+        hitBox = new Rectangle((int)x, (int)y, width, height);
 
     }
 
@@ -27,7 +27,7 @@ public abstract class UIObject {
     public abstract void onClick();
 
     public void onMouseMove(MouseEvent e){
-        if(bounds.contains(e.getX(), e.getY())){
+        if(hitBox.contains(e.getX(), e.getY())){
             hovering = true;
         }
         else{

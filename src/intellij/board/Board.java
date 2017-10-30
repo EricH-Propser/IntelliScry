@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import intellij.Handler.Handler;
 import intellij.board.Tile;
 import intellij.game.Game;
 
@@ -13,10 +14,10 @@ import intellij.game.Game;
 public class Board {
 
 
-    private Game game;
+    private Handler handler;
 
-    public Board(Game game){
-        this.game = game;
+    public Board(Handler handler){
+        this.handler = handler;
 
     }
 
@@ -96,17 +97,6 @@ public class Board {
 
 
 
-
-
-    //getters setters
-    public Game getGame() {
-        return game;
-    }
-
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
 
 
 

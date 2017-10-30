@@ -1,6 +1,6 @@
 package intellij.ui;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class UIImageButton extends UIObject {
@@ -16,17 +16,22 @@ public class UIImageButton extends UIObject {
     }
 
     @Override
-    public void tick() {}
+    public void tick() {
+
+    }
 
     @Override
     public void render(Graphics g) {
         if(hovering){
             g.drawImage(images[1], (int)x, (int)y, width, height, null);
         }
-        else{
+        if(!hovering){
             g.drawImage(images[0], (int)x, (int)y, width, height, null);
-
         }
+        //Show Hit Boxes if needed
+//      g.setColor(Color.blue);
+//		g.fillRect((int)x, (int)y, hitBox.width, hitBox.height);
+
     }
 
     @Override

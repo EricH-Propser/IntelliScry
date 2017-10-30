@@ -1,5 +1,6 @@
 package intellij.entities.minion;
 
+import intellij.Handler.Handler;
 import intellij.entities.Entity;
 import intellij.game.Game;
 import intellij.gfx.Animation;
@@ -7,8 +8,8 @@ import intellij.gfx.Assets;
 
 public class RedDragon extends Minion{
 
-    public RedDragon(Game game, int id) {
-        super(game, id, Assets.dragon_idle);
+    public RedDragon(Handler handler, int id) {
+        super(handler, id, Assets.dragon_idle);
 
         this.id = id;
 

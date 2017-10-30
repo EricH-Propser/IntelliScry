@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+
+import intellij.Handler.Handler;
 import intellij.board.Tile;
 import intellij.game.Game;
 
@@ -14,13 +16,13 @@ public abstract class Entity {
     public static final int DEFAULT_ENTITY_WIDTH = 65;
     public static final int DEFAULT_ENTITY_HEIGHT = 65;
     private static final int DEFAULT_SPEED = 5;
-    private static final int DEFAULT_TILE_MOVEMENT = 4;
+    public static final int DEFAULT_TILE_MOVEMENT = 4;
 
     private int id;
 
-    protected Game game;
+    protected Handler handler;
     protected int speed;
-    protected int tileMoves;
+    protected int movesAvailable, distanceMoved;
     protected int xPos, yPos;
     protected int width, height;
     protected int health;
@@ -35,10 +37,10 @@ public abstract class Entity {
 
     protected Rectangle hitBox;
 
-    public Entity(Game game, int id){
-        this.game = game;
+    public Entity(Handler handler, int id){
+        this.handler = handler;
         this.id = id;
-        this.tileMoves = DEFAULT_TILE_MOVEMENT;
+        this.movesAvailable = DEFAULT_TILE_MOVEMENT;
         health = DEFAULT_HEALTH;
         speed = DEFAULT_SPEED;
 
@@ -73,7 +75,7 @@ public abstract class Entity {
     }
 
     public Tile getOccupiedTileEnt(){
-        for(Tile t : game.getTileManager().getTiles()){
+        for(Tile t : handler.getBattle().getTileManager().getTiles()){
             if(t.getHitBox().contains(hitBox)){
                 return t;
             }
@@ -82,7 +84,7 @@ public abstract class Entity {
     }
 
     public Tile getTileByIdEnt(int num){
-        for(Tile t : game.getTileManager().getTiles()){
+        for(Tile t : handler.getBattle().getTileManager().getTiles()){
             if(t.getId() == num){
                 return t;
             }
@@ -141,7 +143,13 @@ public abstract class Entity {
         this.health = health;
     }
 
+    public int getMovesAvailable() {
+        return movesAvailable;
+    }
 
+    public void setMovesAvailable(int movesAvailable) {
+        this.movesAvailable = movesAvailable;
+    }
 
     public boolean isSelected() {
         return isSelected;
@@ -203,7 +211,13 @@ public abstract class Entity {
         return xMove > 0 || yMove > 0;
     }
 
+    public int getDistanceMoved() {
+        return distanceMoved;
+    }
 
+    public void setDistanceMoved(int distanceMoved) {
+        this.distanceMoved = distanceMoved;
+    }
 
     public int getId() {
         return id;
@@ -213,9 +227,5 @@ public abstract class Entity {
         this.id = id;
     }
 
-
-    public void setPixelsMovedTest(int pixelsMovedTest){
-        this.pixelsMovedTest = pixelsMovedTest;
-    }
 
 }

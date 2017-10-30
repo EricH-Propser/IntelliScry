@@ -1,5 +1,6 @@
 package intellij.entities.tools;
 
+import intellij.Handler.Handler;
 import intellij.board.Tile;
 import intellij.entities.Entity;
 import intellij.entities.minion.Minion;
@@ -194,9 +195,9 @@ public class PathFinder {
     }
 
 
-    public static void SemiHighlightToggle(Game game, Entity e, int maxMoves) {
+    public static void SemiHighlightToggle(Handler handler, Entity e, int maxMoves) {
         if (e.getOccupiedTileEnt() != null) {
-            for (Tile t : game.getTileManager().getTiles()) {
+            for (Tile t : handler.getBattle().getTileManager().getTiles()) {
                 int currentX = e.getOccupiedTileEnt().getxPos();
                 int currentY = e.getOccupiedTileEnt().getyPos();
                 int tCurrentX = t.getxPos();

@@ -5,6 +5,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
 
+import intellij.Handler.Handler;
 import intellij.entities.minion.*;
 import intellij.entities.Entity;
 import intellij.entities.EntityManager;
@@ -12,10 +13,14 @@ import intellij.board.*;
 import intellij.gfx.Assets;
 import intellij.gui.Controller;
 import intellij.gui.Gui;
+import intellij.states.GameState;
+import intellij.states.MenuState;
+import intellij.states.State;
 
 
 public class Game implements Runnable {
 
+    //TEST COMMENT FOR GIT
 
     private Gui gui;
     public int width, height;
@@ -28,6 +33,9 @@ public class Game implements Runnable {
     private Graphics g;
     private Board board;
 
+    //States
+    public State gameState;
+    public State menuState;
 
     //Entities
     private EntityManager entityManager;
@@ -40,18 +48,17 @@ public class Game implements Runnable {
     //Mouse input
     private Controller controller;
 
+    //Handler
+    private Handler handler;
+
     private Assets assets;
 
     public Game(String title, int width, int height){
         this.width = width;
         this.height = height;
         this.title = title;
-        this.board = new Board(this);
         this.controller = new Controller();
-        this.tiles = new ArrayList<Tile>();
-        this.entities = new ArrayList<Entity>();
-        tileManager = new TileManager(this);
-        entityManager = new EntityManager(this);
+
 
     }
 
@@ -62,43 +69,27 @@ public class Game implements Runnable {
         gui.getCanvas().addMouseListener(controller);
         gui.getCanvas().addMouseMotionListener((MouseMotionListener) controller);
 
-
         //load assets(images etc)
         Assets.init();
 
-        //initialize board
-        Board.initBoard(this.tiles);
+        handler = new Handler(this);
 
-
-        //Will be refactored eventually
-        entityManager.addEntity(new RedDragon(this, 1));
-        //entityManager.addEntity(new RedDragon(this, 2));
-
-        for(Entity e : entities){
-            if(e.getId() == 1){
-                e.setXPos(getTile(253).getxPos());
-                e.setYPos(getTile(253).getyPos());
-
-            }
-            else{
-                e.setXPos(getTile(185).getxPos());
-                e.setYPos(getTile(185).getyPos());
-            }
-
-        }
+        gameState = new GameState(handler);
+        menuState = new MenuState(handler);
+        State.setState(menuState);
 
 
     }
 
-    private void tick(){
+    public void tick(){
+        if(State.getState() != null)
+            State.getState().tick();
 
-        tileManager.tick();
-        entityManager.tick();
 
 
     }
 
-    private void render(){
+    public void render(Graphics g){
         bs = gui.getCanvas().getBufferStrategy();
         if(bs == null){
             gui.getCanvas().createBufferStrategy(3);
@@ -108,20 +99,9 @@ public class Game implements Runnable {
         //Clear Screen
         g.clearRect(0, 0, width, height);
 
-        //Render Background Image
-        g.drawImage(Assets.backgroundImage, 0, 0, null);
+        if(State.getState() != null)
+            State.getState().render(g);
 
-        //Render Tiles
-        tileManager.render(g);
-
-        //render entities
-        entityManager.render(g);
-
-
-
-        //SHOW MOUSE HITBOX IF NEEDED
-//		g.setColor(Color.white);
-//		g.fillRect((int) (this.controller.getMouseX()), (int)(this.controller.getMouseY()), this.controller.getHitBox().width, this.controller.getHitBox().height);
 
         bs.show();
         g.dispose();
@@ -148,7 +128,7 @@ public class Game implements Runnable {
 
             if(delta >= 1){
                 tick();
-                render();
+                render(g);
                 ticks++;
                 delta--;
             }
@@ -184,11 +164,22 @@ public class Game implements Runnable {
         }
     }
 
-    public Tile getSelectedTile(){
-        //Need to make sure not Null when calling this
-        return tileManager.getSelectedTile();
-    }
+//    public Tile getSelectedTile(){
+//        //Need to make sure not Null when calling this
+//        return tileManager.getSelectedTile();
+//    }
 
+
+    public Tile getTile(int tileId){
+        //Need to make sure not null when calling this
+        if (tileId < 0 || tileId >= tiles.size()) {
+            return null;
+        }else{
+            return tiles.get(tileId);
+
+        }
+
+    }
 
     public int getWidth() {
         return this.width;
@@ -230,16 +221,7 @@ public class Game implements Runnable {
         this.entityManager = entityManager;
     }
 
-    public Tile getTile(int tileId){
-        //Need to make sure not null when calling this
-        if (tileId < 0 || tileId >= tiles.size()) {
-            return null;
-        }else{
-            return tiles.get(tileId);
 
-        }
-
-    }
 
     public TileManager getTileManager() {
         return tileManager;

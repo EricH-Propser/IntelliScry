@@ -2,47 +2,27 @@ package intellij.board;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Comparator;
 
+import intellij.Handler.Handler;
 import intellij.entities.Entity;
-import intellij.game.Game;
 
 public class TileManager {
 
-    private Game game;
-    private Tile tile;
-    private ArrayList<Tile> tiles;
+    private Handler handler;
+    private ArrayList<Tile> tiles = new ArrayList<>();
     private ArrayList<Tile> semiHiTiles;
 
-    //Making sure only one tile can be selected
-    private Tile selectedTile;
 
-    private Comparator<Tile> renderSorter = new Comparator<Tile>(){
-        @Override
-        public int compare(Tile a, Tile b){
-            if(a.getxPos() + a.getHitBox().height < b.getyPos() + b.getHitBox().height){
-                return -1;
-            }
-            else return 1;
-        }
-    };
-
-
-    public TileManager(Game game){
-        this.game = game;
-        semiHiTiles = new ArrayList<Tile>();
-        tiles = game.getTiles();
+    public TileManager(Handler handler){
+        this.handler = handler;
+        semiHiTiles = new ArrayList<>();
     }
 
     public void tick(){
-        //game calls this tick which in turn ticks each tile
         for(Tile t : tiles){
             t.tick();
             getInput(t);
-
         }
-
-
     }
 
     public void render(Graphics g){
@@ -80,7 +60,7 @@ public class TileManager {
 
     private void entityBooleanInput(Tile t){
         //For all the entities in the game
-        for(Entity e : game.getEntityManager().getEntities()){
+        for(Entity e : handler.getBattle().getEntityManager().getEntities()){
             if(e.isSelected()){
                 updateSemiHiTiles(t);
 
@@ -99,9 +79,9 @@ public class TileManager {
     }
 
     private void mouseBooleanInput(Tile t){
-        if(game.getController().getHitBox().intersects(t.getHitBox())){//Hovering check could be questionable
+        if(handler.getController().getHitBox().intersects(t.getHitBox())){//Hovering check could be questionable
             t.setHovering(true);
-            if(game.getController().isLeftPressed()){//if mouse left clicked
+            if(handler.getController().isLeftPressed()){//if mouse left clicked
                 for(Tile y : tiles){
                     y.setSelected(false);
                 }
@@ -113,7 +93,7 @@ public class TileManager {
     }
 
 
-    public void updateSemiHiTiles(Tile t){
+    private void updateSemiHiTiles(Tile t){
         if(t.isSemiHighlited() && !semiHiTiles.contains(t)){
             semiHiTiles.add(t);
         }
@@ -126,35 +106,27 @@ public class TileManager {
 
 
     //Getters & Setters
-    public Game getGame() {
-        return game;
+
+
+    public Handler getHandler() {
+        return handler;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setHandler(Handler handler) {
+        this.handler = handler;
     }
 
-    public Tile getTile() {
-        return tile;
-    }
 
-    public void setMinion(Tile tile) {
-        this.tile = tile;
-    }
+//    public void setMinion(Tile tile) {
+//        this.tile = tile;
+//    }
 
     public ArrayList<Tile> getTiles() {
         return tiles;
-    }
-
-    public void setEntities(ArrayList<Tile> tiles) {
-        this.tiles = tiles;
     }
 
     public ArrayList<Tile> getSemiHiTiles() {
         return semiHiTiles;
     }
 
-    public void setSemiHiTiles(ArrayList<Tile> semiHiTiles) {
-        this.semiHiTiles = semiHiTiles;
-    }
 }

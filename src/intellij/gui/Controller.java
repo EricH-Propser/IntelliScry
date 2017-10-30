@@ -11,6 +11,7 @@ import java.util.Timer;
 import javax.swing.JLabel;
 import javax.swing.event.MouseInputListener;
 
+import intellij.cards.CardManager;
 import intellij.ui.UIManager;
 import intellij.game.Game;
 
@@ -18,6 +19,7 @@ public class Controller implements MouseInputListener{
 
     private boolean leftPressed, rightPressed, clicked;
     private int mouseX, mouseY;
+    private CardManager cardManager;
     private UIManager uiManager;
     private Rectangle hitBox;
 
@@ -28,6 +30,10 @@ public class Controller implements MouseInputListener{
 
     public void setUIManager(UIManager uiManager){
         this.uiManager = uiManager;
+    }
+
+    public void setCardManager(CardManager cardManager){
+        this.cardManager = cardManager;
     }
 
 
@@ -45,14 +51,32 @@ public class Controller implements MouseInputListener{
     public void mouseReleased(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1){
             leftPressed = false;
+            if(uiManager != null){
+                uiManager.onMouseRelease(e);
+            }
+            if(cardManager != null){
+                cardManager.onLeftMouseReleased(e);
+            }
         }
         else if(e.getButton() == MouseEvent.BUTTON3){
             rightPressed = false;
+            if(uiManager != null){
+                uiManager.onMouseRelease(e);
+            }
+            if(cardManager != null){
+                cardManager.onRightMouseReleased(e);
+            }
         }
-        if(uiManager != null){
-            uiManager.onMouseRelease(e);
-        }
+//        if(uiManager != null){
+//            uiManager.onMouseRelease(e);
+//        }
+//        if(cardManager != null){
+//            cardManager.onMouseRelease(e);
+//        }
+
     }
+
+
 
     public void mouseMoved(MouseEvent e) {
         mouseX = e.getX();
@@ -61,6 +85,11 @@ public class Controller implements MouseInputListener{
         if(uiManager != null){
             uiManager.onMouseMove(e);
         }
+        if(cardManager != null) {
+            cardManager.onMouseMove(e);
+        }
+
+
 
     }
 

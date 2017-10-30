@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
+import intellij.Handler.Handler;
 import intellij.board.Tile;
 import intellij.entities.Entity;
 import intellij.game.Game;
@@ -36,10 +37,10 @@ public class Minion extends Entity{
     private Tile selectedTile;
     private Tile checkPoint;
 
-    public Minion(Game game, int id, BufferedImage[] images) {
-        super(game, id);
+    public Minion(Handler handler, int id, BufferedImage[] images) {
+        super(handler, id);
         movePath = new ArrayList<Tile>();
-        for(int i = 0; i < tileMoves + 1; i++){
+        for(int i = 0; i < movesAvailable + 1; i++){
             movePath.add(i, null);
         }
     }
@@ -66,7 +67,7 @@ public class Minion extends Entity{
 
     @Override
     public void moveX(){
-        selectedTile = game.getSelectedTile();
+        selectedTile = handler.getBattle().getTileManager().getSelectedTile();
 
         if(selectedTile != null){
             if(xMove > 0){//moving left and right
@@ -83,7 +84,7 @@ public class Minion extends Entity{
 
     @Override
     public void moveY(){
-        selectedTile = game.getSelectedTile();
+        selectedTile = handler.getBattle().getTileManager().getSelectedTile();
 
         if(selectedTile != null){
             if(yMove > 0){//moving up and down
@@ -115,7 +116,7 @@ public class Minion extends Entity{
 
     public Tile getOccupiedTile(){
         if(isSelected){
-            for(Tile t : game.getTileManager().getTiles()){
+            for(Tile t : handler.getBattle().getTileManager().getTiles()){
                 if(t.isOccupied()){
                     return t;
                 }
@@ -126,12 +127,12 @@ public class Minion extends Entity{
 
 
     protected boolean collisionWithTile(int tileId){
-        return game.getTile(tileId).isSolid();
+        return handler.getBattle().getTile(tileId).isSolid();
 
     }
 
     public int getOccupiedTileId(int tileId){
-        return game.getTile(tileId).getId();
+        return handler.getBattle().getTile(tileId).getId();
 
     }
 
@@ -230,13 +231,22 @@ public class Minion extends Entity{
         this.id = id;
     }
 
-
-
     @Override
-    public void setPixelsMovedTest(int pixelsMovedTest){
-        this.pixelsMovedTest = pixelsMovedTest;
+    public int getMovesAvailable() {
+        return movesAvailable;
     }
-
+    @Override
+    public void setMovesAvailable(int movesAvailable) {
+        this.movesAvailable = movesAvailable;
+    }
+    @Override
+    public int getDistanceMoved() {
+        return distanceMoved;
+    }
+    @Override
+    public void setDistanceMoved(int distanceMoved) {
+        this.distanceMoved = distanceMoved;
+    }
 
 
 }

@@ -7,50 +7,74 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2adc887-7cbc-4ab7-b220-1b006af9106b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/Mbackground.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/buttonSheet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/crystalBallSheet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/eggplant_spritesheet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/eggplant_spritesheet_transp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/mBackground1500x937.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/mBackgroundBig.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/mBackgroundOrig.jpeg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/mySheet.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/reddragon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/test.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/IntelliScry_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IntelliScry.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/worlds/world1.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/worlds/world3.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/BackgroundTile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/Board.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/DirtTile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/GrassTile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/RockTile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/Tile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/TileManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/board/TranslucentTile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/entities/Entity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/entities/EntityManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/entities/minion/Minion.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/entities/minion/RedDragon.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/game/Game.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/game/Launcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/gfx/Animation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/gfx/Assets.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/gfx/ImageLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/gfx/SpriteSheet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/gui/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/gui/Gui.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/ui/ClickListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/ui/UIImageButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/ui/UIManager.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/ui/UIObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/Battle/Battle$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/Battle/Battle.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/Handler/Handler.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/Player/Player.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/cards/Card.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/cards/CardManager.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/cards/MinionCard.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/cards/individualCards/CardRedDragon.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/cards/individualCards/CardSkeleton.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/states/GameState.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/states/MenuState$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/states/MenuState.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/states/State.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/GUItest.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/Skeleton1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/card_RedDragon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/mBackground1500x937GUI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/manaBubble2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/GUItest.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/Skeleton1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/card_RedDragon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/mBackground1500x937GUI.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/textures/manaBubble2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/Battle/Battle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/Handler/Handler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/Player/Player.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/cards/Card.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/cards/CardManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/cards/MinionCard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/cards/individualCards/CardRedDragon.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/cards/individualCards/CardSkeleton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/states/GameState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/states/MenuState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/intellij/states/State.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/TileManager$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/Board.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/Tile.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/Tile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/TileManager.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/board/TileManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/Entity.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/Entity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/EntityManager.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/EntityManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/minion/Minion.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/minion/Minion.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/minion/RedDragon.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/minion/RedDragon.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/tools/PathFinder.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/entities/tools/PathFinder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/game/Game.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/game/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/gfx/Assets.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/gfx/Assets.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/gui/Controller.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/gui/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/ui/UIImageButton.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/ui/UIImageButton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/ui/UIManager.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/ui/UIManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/intellij/ui/UIObject.class" afterPath="$PROJECT_DIR$/out/production/IntelliScry/intellij/ui/UIObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/textures/buttonSheet.png" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/buttonSheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/IntelliScry/textures/mySheet.png" afterPath="$PROJECT_DIR$/out/production/IntelliScry/textures/mySheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/textures/buttonSheet.png" afterPath="$PROJECT_DIR$/res/textures/buttonSheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/textures/mySheet.png" afterPath="$PROJECT_DIR$/res/textures/mySheet.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/board/Board.java" afterPath="$PROJECT_DIR$/src/intellij/board/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/board/Tile.java" afterPath="$PROJECT_DIR$/src/intellij/board/Tile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/board/TileManager.java" afterPath="$PROJECT_DIR$/src/intellij/board/TileManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/entities/Entity.java" afterPath="$PROJECT_DIR$/src/intellij/entities/Entity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/entities/EntityManager.java" afterPath="$PROJECT_DIR$/src/intellij/entities/EntityManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/entities/minion/Minion.java" afterPath="$PROJECT_DIR$/src/intellij/entities/minion/Minion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/entities/minion/RedDragon.java" afterPath="$PROJECT_DIR$/src/intellij/entities/minion/RedDragon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java" afterPath="$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/game/Game.java" afterPath="$PROJECT_DIR$/src/intellij/game/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/gfx/Assets.java" afterPath="$PROJECT_DIR$/src/intellij/gfx/Assets.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/gui/Controller.java" afterPath="$PROJECT_DIR$/src/intellij/gui/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/ui/UIImageButton.java" afterPath="$PROJECT_DIR$/src/intellij/ui/UIImageButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/ui/UIManager.java" afterPath="$PROJECT_DIR$/src/intellij/ui/UIManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/intellij/ui/UIObject.java" afterPath="$PROJECT_DIR$/src/intellij/ui/UIObject.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,21 +86,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Assets.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/intellij/gfx/Assets.java">
+      <file leaf-file-name="CardManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/intellij/cards/CardManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="17">
+              <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/intellij/board/Tile.java">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/intellij/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,8 +113,8 @@
       <file leaf-file-name="TileManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/intellij/board/TileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+            <state relative-caret-position="1462">
+              <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/intellij/entities/EntityManager.java">
+      <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/intellij/cards/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3349">
-              <caret line="203" column="21" lean-forward="false" selection-start-line="203" selection-start-column="21" selection-end-line="203" selection-end-column="21" />
+            <state relative-caret-position="1683">
+              <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,33 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/intellij/entities/Entity.java">
+      <file leaf-file-name="Battle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/intellij/Battle/Battle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3001#3002#0" expanded="true" />
-                <element signature="e#3037#3038#0" expanded="true" />
-                <element signature="e#3151#3152#0" expanded="true" />
-                <element signature="e#3195#3196#0" expanded="true" />
-                <element signature="e#3549#3550#0" expanded="true" />
-                <element signature="e#3578#3579#0" expanded="true" />
-                <element signature="e#4009#4010#0" expanded="true" />
-                <element signature="e#4054#4055#0" expanded="true" />
-                <element signature="e#4227#4228#0" expanded="true" />
-                <element signature="e#4281#4282#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Minion.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            <state relative-caret-position="1292">
+              <caret line="92" column="29" lean-forward="false" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,21 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/intellij/game/Game.java">
+      <file leaf-file-name="CardRedDragon.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/intellij/cards/individualCards/CardRedDragon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PathFinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
-              <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+            <state relative-caret-position="476">
+              <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,27 +169,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>double</find>
-      <find>chosenmo</find>
       <find>active</find>
       <find>hovering</find>
       <find>movesavail</find>
       <find>movePath</find>
       <find>highlightPa</find>
       <find>movesav</find>
-      <find>tilemo</find>
       <find>isho</find>
       <find>getoccupi</find>
       <find>getocc</find>
-      <find>system.out</find>
       <find>system.ou</find>
       <find>xdiff</find>
-      <find>system</find>
       <find>xmove</find>
       <find>xstart</find>
+      <find>tilemo</find>
+      <find>movesavailableves</find>
+      <find>setmoves</find>
+      <find>handl</find>
+      <find>game</find>
+      <find>system.out</find>
+      <find>update</find>
+      <find>setuimana</find>
+      <find>system.</find>
+      <find>uiManager2</find>
+      <find>semihi</find>
+      <find>add</find>
+      <find>syste</find>
+      <find>system</find>
+      <find>none</find>
+      <find>syst</find>
+      <find>hoveringon</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -215,27 +222,42 @@
         <option value="$PROJECT_DIR$/src/intellij/gfx/Animation.java" />
         <option value="$PROJECT_DIR$/src/intellij/gfx/ImageLoader.java" />
         <option value="$PROJECT_DIR$/src/intellij/gfx/SpriteSheet.java" />
-        <option value="$PROJECT_DIR$/src/intellij/gui/Controller.java" />
         <option value="$PROJECT_DIR$/src/intellij/minion/Minion.java" />
         <option value="$PROJECT_DIR$/src/intellij/minion/RedDragon.java" />
         <option value="$PROJECT_DIR$/src/intellij/ui/ClickListener.java" />
-        <option value="$PROJECT_DIR$/src/intellij/ui/UIImageButton.java" />
-        <option value="$PROJECT_DIR$/src/intellij/ui/UIManager.java" />
-        <option value="$PROJECT_DIR$/src/intellij/ui/UIObject.java" />
         <option value="$PROJECT_DIR$/src/intellij/board/intellij/BackGroundTile.java" />
         <option value="$PROJECT_DIR$/src/intellij/board/BackgroundTile.java" />
         <option value="$PROJECT_DIR$/src/intellij/board/DirtTile.java" />
         <option value="$PROJECT_DIR$/src/intellij/game/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/intellij/board/Board.java" />
-        <option value="$PROJECT_DIR$/src/intellij/gfx/Assets.java" />
         <option value="$PROJECT_DIR$/src/intellij/gui/Gui.java" />
-        <option value="$PROJECT_DIR$/src/intellij/board/Tile.java" />
-        <option value="$PROJECT_DIR$/src/intellij/board/TileManager.java" />
-        <option value="$PROJECT_DIR$/src/intellij/game/Game.java" />
-        <option value="$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java" />
-        <option value="$PROJECT_DIR$/src/intellij/entities/EntityManager.java" />
+        <option value="$PROJECT_DIR$/src/intellij/World/World.java" />
+        <option value="$PROJECT_DIR$/src/intellij/Handler/Handler.java" />
+        <option value="$PROJECT_DIR$/src/intellij/states/State.java" />
+        <option value="$PROJECT_DIR$/src/intellij/board/Board.java" />
+        <option value="$PROJECT_DIR$/src/intellij/entities/minion/RedDragon.java" />
         <option value="$PROJECT_DIR$/src/intellij/entities/Entity.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/Deck.java" />
+        <option value="$PROJECT_DIR$/src/intellij/states/MenuState.java" />
+        <option value="$PROJECT_DIR$/src/intellij/ui/UIObject.java" />
+        <option value="$PROJECT_DIR$/src/intellij/ui/UIImageButton.java" />
+        <option value="$PROJECT_DIR$/src/intellij/states/GameState.java" />
+        <option value="$PROJECT_DIR$/src/intellij/ui/UIManager.java" />
+        <option value="$PROJECT_DIR$/src/intellij/board/TileManager.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/CardSkeleton.java" />
+        <option value="$PROJECT_DIR$/src/intellij/entities/EntityManager.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/MinionCard.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/individualCards/CardSkeleton.java" />
+        <option value="$PROJECT_DIR$/src/intellij/Player/Player.java" />
+        <option value="$PROJECT_DIR$/src/intellij/gui/Controller.java" />
         <option value="$PROJECT_DIR$/src/intellij/entities/minion/Minion.java" />
+        <option value="$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java" />
+        <option value="$PROJECT_DIR$/src/intellij/gfx/Assets.java" />
+        <option value="$PROJECT_DIR$/src/intellij/board/Tile.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/individualCards/CardRedDragon.java" />
+        <option value="$PROJECT_DIR$/src/intellij/Battle/Battle.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/Card.java" />
+        <option value="$PROJECT_DIR$/src/intellij/cards/CardManager.java" />
+        <option value="$PROJECT_DIR$/src/intellij/game/Game.java" />
       </list>
     </option>
   </component>
@@ -246,12 +268,14 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-110" />
+    <option name="y" value="463" />
     <option name="width" value="1874" />
     <option name="height" value="1096" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -282,6 +306,12 @@
             <path>
               <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
               <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="textures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,6 +319,13 @@
               <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="intellij" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="Battle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
@@ -302,7 +339,30 @@
               <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+              <item name="individualCards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
               <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+              <item name="minion" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
@@ -326,21 +386,57 @@
               <item name="intellij" type="462c0819:PsiDirectoryNode" />
               <item name="gfx" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="Handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="Player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="states" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IntelliScry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IntelliScry" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="intellij" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Programmin/GameBackup/IntelliScrybackup_noPathfind" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -465,7 +561,7 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\Matt B\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -482,38 +578,45 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26145834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19270833" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2" sideWeight="0.5022051" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2" sideWeight="0.49779493" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.67083335" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15766263" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2045204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972437" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="should be up to date" />
+    <option name="LAST_COMMIT_MESSAGE" value="should be up to date" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -522,182 +625,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3001#3002#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
-            <element signature="e#3151#3152#0" expanded="true" />
-            <element signature="e#3195#3196#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3578#3579#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
-            <element signature="e#4227#4228#0" expanded="true" />
-            <element signature="e#4281#4282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3001#3002#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
-            <element signature="e#3151#3152#0" expanded="true" />
-            <element signature="e#3195#3196#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3578#3579#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
-            <element signature="e#4227#4228#0" expanded="true" />
-            <element signature="e#4281#4282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="39" column="47" lean-forward="true" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3001#3002#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
-            <element signature="e#3151#3152#0" expanded="true" />
-            <element signature="e#3195#3196#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3578#3579#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
-            <element signature="e#4227#4228#0" expanded="true" />
-            <element signature="e#4281#4282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/DirtTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/BackgroundTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/game/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/intellij/board/DirtTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -737,24 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/GrassTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/RockTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding>
-            <element signature="e#270#271#0" expanded="false" />
-            <element signature="e#297#298#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/intellij/board/TranslucentTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -776,48 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/gui/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/RedDragon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/ui/ClickListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/ui/UIImageButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/ui/UIManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/ui/UIObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/intellij/board/intellij/BackGroundTile.java" />
     <entry file="file://$PROJECT_DIR$/src/intellij/board/BackgroundTile.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -830,16 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21947">
           <caret line="1387" column="0" lean-forward="false" selection-start-line="1387" selection-start-column="0" selection-end-line="1387" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/gfx/ImageLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,10 +714,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/intellij/World/World.java" />
+    <entry file="file://$PROJECT_DIR$/src/intellij/states/InventoryState.java" />
+    <entry file="file://$PROJECT_DIR$/src/intellij/board/RockTile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="6" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/board/GrassTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -877,31 +746,256 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="34" column="30" lean-forward="false" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/gfx/Assets.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/Tile.java">
+    <entry file="file://$PROJECT_DIR$/src/intellij/board/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="434">
+          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/states/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#418#419#0" expanded="false" />
+            <element signature="e#456#457#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/Handler/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Comparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="142" column="73" lean-forward="true" selection-start-line="142" selection-start-column="73" selection-end-line="142" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/RedDragon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/cards/Deck.java" />
+    <entry file="file://$PROJECT_DIR$/src/intellij/ui/ClickListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/gfx/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/ui/UIImageButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/states/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/ui/UIManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/mySheet.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/ui/UIObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="17" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/states/MenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/cards/MinionCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/gui/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="67" column="13" lean-forward="true" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/Player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/cards/individualCards/CardSkeleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="38" column="22" lean-forward="false" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/entities/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/entities/EntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="241" column="17" lean-forward="false" selection-start-line="241" selection-start-column="17" selection-end-line="241" selection-end-column="17" />
+          <folding>
+            <element signature="e#6676#6677#0" expanded="true" />
+            <element signature="e#6700#6701#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/intellij/entities/tools/PathFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="77" column="10" lean-forward="false" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+        <state relative-caret-position="493">
+          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/gfx/Assets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="79" column="42" lean-forward="false" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/board/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="76" column="13" lean-forward="true" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/cards/individualCards/CardRedDragon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/Battle/Battle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="92" column="29" lean-forward="false" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/board/TileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/cards/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/intellij/cards/CardManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -910,56 +1004,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/intellij/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="74" column="10" lean-forward="false" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/board/TileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="62" column="31" lean-forward="false" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/EntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
-          <caret line="203" column="21" lean-forward="false" selection-start-line="203" selection-start-column="21" selection-end-line="203" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="58" column="16" lean-forward="false" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3001#3002#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
-            <element signature="e#3151#3152#0" expanded="true" />
-            <element signature="e#3195#3196#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3578#3579#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4054#4055#0" expanded="true" />
-            <element signature="e#4227#4228#0" expanded="true" />
-            <element signature="e#4281#4282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/intellij/entities/minion/Minion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        <state relative-caret-position="170">
+          <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -4,8 +4,10 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import com.martyworm.Handler.Handler;
 import com.martyworm.ui.ClickListener;
 import com.martyworm.game.Game;
+
 
 public class Tile {
 
@@ -25,6 +27,7 @@ public class Tile {
     private boolean highlighted = false;
     private boolean isOccupied = false;
     private boolean isSelected = false;;
+    private boolean redHighlight = false;
 
     //For Movement
     int gValue;
@@ -35,15 +38,14 @@ public class Tile {
 
 
     private ClickListener clicker;
-    private Game game;
+    private Handler handler;
 
     public Tile(int id, BufferedImage[] images){
 
         this.images = images;
-        this.clicker = clicker;
         tiles[id] = this;
 
-        this.game = game;
+        this.handler = handler;
         this.width = TILEWIDTH;
         this.height = TILEHEIGHT;
 
@@ -62,7 +64,6 @@ public class Tile {
 
     public void tick(){
 
-
     }
 
     public void render(Graphics g){
@@ -74,6 +75,9 @@ public class Tile {
             }else {
                 g.drawImage(images[1], xPos, yPos, width, height, null);
             }
+        }
+        else if(redHighlight){
+            g.drawImage(images[3], xPos, yPos, width, height, null);
         }
         else{
             g.drawImage(images[0], xPos, yPos, width, height, null);
@@ -127,12 +131,12 @@ public class Tile {
         this.image = image;
     }
 
-    public Game getGame() {
-        return game;
+    public Handler getHandler() {
+        return handler;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setHandler(Handler handler) {
+        this.handler = handler;
     }
 
     public boolean isHovering() {
@@ -218,6 +222,14 @@ public class Tile {
 
     public int getDistanceFromEntity() {
         return distanceFromEntity;
+    }
+
+    public boolean isRedHighlight() {
+        return redHighlight;
+    }
+
+    public void setRedHighlight(boolean redHighlight) {
+        this.redHighlight = redHighlight;
     }
 
     public void setDistanceFromEntity(int distanceFromEntity) {

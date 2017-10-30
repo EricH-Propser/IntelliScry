@@ -1,24 +1,28 @@
 package com.martyworm.ui;
 
+import com.martyworm.Handler.Handler;
+
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import com.martyworm.game.Game;
 
 
 
 public class UIManager {
 
-    private Game game;
+    private Handler handler;
     private ArrayList<UIObject> objects;
 
-    public UIManager(Game game){
-        this.game = game;
+    public UIManager(Handler handler){
+        this.handler = handler;
         objects = new ArrayList<UIObject>();
     }
 
     public void tick(){
+        if(handler.getBattle() != null){
+            handler.getController().setUIManager(this);
+        }
         for(UIObject o : objects){
             o.tick();
         }
@@ -29,12 +33,12 @@ public class UIManager {
         }
     }
 
-    public Game getGame() {
-        return game;
+    public Handler getHandler() {
+        return handler;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setHandler(Handler handler) {
+        this.handler = handler;
     }
 
     public ArrayList<UIObject> getObjects() {

@@ -1,8 +1,9 @@
 package com.martyworm.entities.tools;
 
+
+import com.martyworm.Handler.Handler;
 import com.martyworm.board.Tile;
 import com.martyworm.entities.Entity;
-import com.martyworm.game.Game;
 import com.martyworm.gui.Controller;
 
 import java.util.ArrayList;
@@ -189,9 +190,9 @@ public class PathFinder {
     }
 
 
-    public static void SemiHighlightToggle(Game game, Entity e, int maxMoves) {
+    public static void SemiHighlightToggle(Handler handler, Entity e, int maxMoves) {
         if (e.getOccupiedTileEnt() != null) {
-            for (Tile t : game.getTileManager().getTiles()) {
+            for (Tile t : handler.getBattle().getTileManager().getTiles()) {
                 int currentX = e.getOccupiedTileEnt().getxPos();
                 int currentY = e.getOccupiedTileEnt().getyPos();
                 int tCurrentX = t.getxPos();

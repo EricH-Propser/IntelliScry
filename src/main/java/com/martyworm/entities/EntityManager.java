@@ -4,24 +4,24 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 
+import com.martyworm.Handler.Handler;
 import com.martyworm.board.Tile;
+import com.martyworm.entities.minion.Minion;
 import com.martyworm.entities.tools.PathFinder;
 import com.martyworm.game.Game;
 
+
 public class EntityManager {
 
-    private Game game;
-    private ArrayList<Entity> entities;
+    private Handler handler;
+    private ArrayList<Entity> entities = new ArrayList<>();
 
-
-    //movement variables
-    private int movesAvailable;
     private Tile selectedTile;
 
-    public EntityManager(Game game){
-        this.game = game;
-        entities = game.getEntities();
 
+
+    public EntityManager(Handler handler){
+        this.handler = handler;
     }
 
     public void tick(){
@@ -32,10 +32,9 @@ public class EntityManager {
             e.tick();
             if(e.isSelected()){
 
-                if(movesAvailable > 0 && game.getSelectedTile() != null){
-                    selectedTile = game.getSelectedTile();
+                if(e.getMovesAvailable() > 0 && handler.getBattle().getTileManager().getSelectedTile() != null){
+                    selectedTile = handler.getBattle().getTileManager().getSelectedTile();
                 }
-                System.out.println(e.getxMove() + ", " + e.getyMove());
                 showAvailableMoves(e);
                 showPathFinder(e);
                 move();
@@ -123,8 +122,9 @@ public class EntityManager {
 
             int distance = (xDistance + yDistance) / 40;
 
-            int movesAvailable = 4 - distance;
-            PathFinder.SemiHighlightToggle(game, e, movesAvailable);
+            e.setDistanceMoved(distance);
+            e.setMovesAvailable(Entity.DEFAULT_TILE_MOVEMENT - e.getDistanceMoved());
+            PathFinder.SemiHighlightToggle(handler, e, e.getMovesAvailable());
         }
     }
 
@@ -134,8 +134,8 @@ public class EntityManager {
     private void showPathFinder(Entity e){
 
         //working without pathfinding
-        for(Tile t : game.getTileManager().getSemiHiTiles()) {
-            PathFinder.highlightPath(game.getController(), e, t);
+        for(Tile t : handler.getBattle().getTileManager().getSemiHiTiles()) {
+            PathFinder.highlightPath(handler.getController(), e, t);
         }
 
     }
@@ -173,9 +173,9 @@ public class EntityManager {
 
     private void toggleMinionDeselect(Entity e){
         if(e.isSelected()){	//deselects minion
-            if(game.getController().isRightPressed() && !e.isMoving()){//disallow deselection during movement
+            if(handler.getController().isRightPressed() && !e.isMoving()){//disallow deselection during movement
                 e.setSelected(false);
-                game.getTileManager().getSemiHiTiles().clear();
+                handler.getBattle().getTileManager().getSemiHiTiles().clear();
             }
         }
     }
@@ -200,7 +200,7 @@ public class EntityManager {
 
     private void toggleSpeed(Entity e){
         if(e.isSelected()){	//Turns on speed > 0 once minion is selected and the mouse is left clicked
-            if(!game.getController().getHitBox().intersects(e.getHitBox()) && game.getController().isLeftPressed()){
+            if(!handler.getController().getHitBox().intersects(e.getHitBox()) && handler.getController().isLeftPressed()){
                 e.setxMove(e.getSpeed());
                 e.setyMove(e.getSpeed());
             }
@@ -209,13 +209,12 @@ public class EntityManager {
 
     private void setStartingSelectionVariables(Entity e){
         //If mouse is left clicked while minion hitbox and mouse hitbox intersect
-        if(game.getController().isLeftPressed() && e.hitBox.intersects(game.getController().getHitBox()) && !e.isSelected()){
-            movesAvailable = 4;
-            e.setPixelsMovedTest(0);
+        if(handler.getController().isLeftPressed() && e.hitBox.intersects(handler.getController().getHitBox()) && !e.isSelected()){
             for(Entity g : entities){
                 g.setSelected(false);
             }
             e.setSelected(true);
+            e.setDistanceMoved(0);
 
             if(getOccupiedTile(e) != null){
                 e.setxStart(getOccupiedTile(e).getxPos());
@@ -225,7 +224,7 @@ public class EntityManager {
     }
     private Tile getOccupiedTile(Entity e){
 
-        for(Tile t : game.getTileManager().getTiles()) {
+        for(Tile t : handler.getBattle().getTileManager().getTiles()) {
             if (t.getHitBox().contains(e.getHitBox())) {
                 return t;
             }
@@ -237,16 +236,22 @@ public class EntityManager {
 
     public void addEntity(Entity e){
         entities.add(e);
+
+    }
+
+    public Minion addMinion(Minion m){
+        return m;
     }
 
     //Getters & Setters
 
-    public Game getGame() {
-        return game;
+
+    public Handler getHandler() {
+        return handler;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setHandler(Handler handler) {
+        this.handler = handler;
     }
 
     public ArrayList<Entity> getEntities() {

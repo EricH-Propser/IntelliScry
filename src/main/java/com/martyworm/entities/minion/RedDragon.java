@@ -1,14 +1,16 @@
 package com.martyworm.entities.minion;
 
+
+import com.martyworm.Handler.Handler;
 import com.martyworm.entities.Entity;
-import com.martyworm.game.Game;
 import com.martyworm.gfx.Animation;
 import com.martyworm.gfx.Assets;
 
+
 public class RedDragon extends Minion{
 
-    public RedDragon(Game game, int id) {
-        super(game, id, Assets.dragon_idle);
+    public RedDragon(Handler handler, int id) {
+        super(handler, id, Assets.dragon_idle);
 
         this.id = id;
 

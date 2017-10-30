@@ -6,7 +6,8 @@ public class Assets {
 
     public static BufferedImage dirt, grass, stone, plant1, backgroundImage, redDragon, translucent, guiOverlay;
     public static BufferedImage[] dragon_down, dragon_idle, dragon_attack;
-    //	public static BufferedImage[] scryOrb;
+
+    public static BufferedImage[] skeleton_idle;
 
     public static BufferedImage[] playButton, endTurnButton, manaBubble;
     public static BufferedImage[] rockTile2, dirtTile2, grassTile2, card_Skeleton, card_redDragon;
@@ -25,20 +26,21 @@ public class Assets {
 
 
     public static void init(){
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/mySheet.png"));
+        SpriteSheet plantSheet = new SpriteSheet(ImageLoader.loadImage("/textures/eggplant_spritesheet_transp.png"));
+//        SpriteSheet dragonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/reddragon.png"));
+        SpriteSheet dragonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/dragonfaceSheet.png"));
 
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("textures/mySheet.png"));
-        SpriteSheet plantSheet = new SpriteSheet(ImageLoader.loadImage("textures/eggplant_spritesheet_transp.png"));
-        SpriteSheet dragonSheet = new SpriteSheet(ImageLoader.loadImage("textures/reddragon.png"));
-        SpriteSheet crystalBallSheet = new SpriteSheet(ImageLoader.loadImage("textures/crystalBallSheet.png"));
-        SpriteSheet buttonSheet = new SpriteSheet(ImageLoader.loadImage("textures/buttonSheet.png"));
-        SpriteSheet card_SkeletonSheet = new SpriteSheet(ImageLoader.loadImage("textures/Skeleton1.png"));
-        SpriteSheet card_redDragonSheet = new SpriteSheet(ImageLoader.loadImage("textures/card_RedDragon.png"));
+        SpriteSheet crystalBallSheet = new SpriteSheet(ImageLoader.loadImage("/textures/crystalBallSheet.png"));
+        SpriteSheet buttonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/buttonSheet.png"));
+        SpriteSheet card_SkeletonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/Skeleton1.png"));
+        SpriteSheet card_redDragonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/card_RedDragon.png"));
+        SpriteSheet skeletonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/skellysheet.png"));
 
+        SpriteSheet manaBubbleSheet = new SpriteSheet(ImageLoader.loadImage("/textures/manaBubble2.png"));
 
-        SpriteSheet manaBubbleSheet = new SpriteSheet(ImageLoader.loadImage("textures/manaBubble2.png"));
-
-        backgroundImage = ImageLoader.loadImage("textures/mBackground1500x937.png");
-        guiOverlay = ImageLoader.loadImage("textures/guiTest.png");
+        backgroundImage = ImageLoader.loadImage("/textures/mBackground1500x937.png");
+        guiOverlay = ImageLoader.loadImage("/textures/guiTest.png");
 
 
         //BUTTONS & MANA
@@ -80,7 +82,6 @@ public class Assets {
         grassTile2[0] = sheet.crop(WIDTH*1, 0, WIDTH, HEIGHT);
         grassTile2[1] = sheet.crop(WIDTH*5, 0, WIDTH, HEIGHT);
         grassTile2[2] = sheet.crop(WIDTH*7, 0, WIDTH, HEIGHT);
-
         grassTile2[3] = sheet.crop(WIDTH*10, 0, WIDTH, HEIGHT);
 
         dirt = sheet.crop(0, 0, WIDTH, HEIGHT);
@@ -94,22 +95,52 @@ public class Assets {
 
 
         //  MINIONS ######################################################################################
-        dragon_idle = new BufferedImage[3];
-        dragon_idle[0] = dragonSheet.crop(0, 515, 153/*width*/, 127/*height*/);
-        dragon_idle[1] = dragonSheet.crop(152, 515, 174, 127);
-        dragon_idle[2] = dragonSheet.crop(338, 515, 173, 127);
+//        dragon_idle = new BufferedImage[3];
+//        dragon_idle[0] = dragonSheet.crop(0, 515, 153/*width*/, 127/*height*/);
+//        dragon_idle[1] = dragonSheet.crop(152, 515, 174, 127);
+//        dragon_idle[2] = dragonSheet.crop(338, 515, 173, 127);
+
+
+//        dragon_down = new BufferedImage[4];
+//        dragon_down[0] = dragonSheet.crop(546, 146, WIDTH_DRAG, HEIGHT_DRAG);
+//        dragon_down[1] = dragonSheet.crop(752, 146, WIDTH_DRAG, HEIGHT_DRAG);
+//        dragon_down[2] = dragonSheet.crop(950, 146, WIDTH_DRAG, HEIGHT_DRAG);
+//        dragon_down[3] = dragonSheet.crop(752, 146, WIDTH_DRAG, HEIGHT_DRAG);
+
+
+//        dragon_attack = new BufferedImage[2];
+//        dragon_attack[0] = dragonSheet.crop(168, 354, WIDTH_DRAG/*width*/, HEIGHT_DRAG/*height*/);
+//        dragon_attack[1] = dragonSheet.crop(334, 354, WIDTH_DRAG, HEIGHT_DRAG);
+
+        dragon_idle = new BufferedImage[4];
+        dragon_idle[0] = dragonSheet.crop(0, 0, 99/*width*/, 127/*height*/);
+        dragon_idle[1] = dragonSheet.crop(100, 0, 99, 127);
+        dragon_idle[2] = dragonSheet.crop(200, 0, 99, 127);
+        dragon_idle[3] = dragonSheet.crop(300, 0, 99, 127);
 
         dragon_down = new BufferedImage[4];
-        dragon_down[0] = dragonSheet.crop(546, 146, WIDTH_DRAG, HEIGHT_DRAG);
-        dragon_down[1] = dragonSheet.crop(752, 146, WIDTH_DRAG, HEIGHT_DRAG);
-        dragon_down[2] = dragonSheet.crop(950, 146, WIDTH_DRAG, HEIGHT_DRAG);
-        dragon_down[3] = dragonSheet.crop(752, 146, WIDTH_DRAG, HEIGHT_DRAG);
+        dragon_idle[0] = dragonSheet.crop(0, 0, 99/*width*/, 127/*height*/);
+        dragon_idle[1] = dragonSheet.crop(100, 0, 99, 127);
+        dragon_idle[2] = dragonSheet.crop(200, 0, 99, 127);
+        dragon_idle[3] = dragonSheet.crop(300, 0, 99, 127);
 
-        dragon_attack = new BufferedImage[2];
-        dragon_attack[0] = dragonSheet.crop(168, 354, WIDTH_DRAG/*width*/, HEIGHT_DRAG/*height*/);
-        dragon_attack[1] = dragonSheet.crop(334, 354, WIDTH_DRAG, HEIGHT_DRAG);
+        dragon_attack = new BufferedImage[4];
+        dragon_idle[0] = dragonSheet.crop(0, 0, 99/*width*/, 127/*height*/);
+        dragon_idle[1] = dragonSheet.crop(100, 0, 99, 127);
+        dragon_idle[2] = dragonSheet.crop(200, 0, 99, 127);
+        dragon_idle[3] = dragonSheet.crop(300, 0, 99, 127);
 
-        redDragon = dragonSheet.crop(546, 146, WIDTH_DRAG, HEIGHT_DRAG);
+
+        skeleton_idle = new BufferedImage[4];
+        skeleton_idle[0] = skeletonSheet.crop(0, 0, 99, 127);
+        skeleton_idle[1] = skeletonSheet.crop(100, 0, 99, 127);
+        skeleton_idle[2] = skeletonSheet.crop(200, 0, 99, 127);
+        skeleton_idle[3] = skeletonSheet.crop(300, 0, 99, 127);
+
+
+
+
+//        redDragon = dragonSheet.crop(546, 146, WIDTH_DRAG, HEIGHT_DRAG);
         plant1 = plantSheet.crop(236, 55, WIDTH_P, HEIGHT_P);
         // ################################################################################################
 

@@ -14,8 +14,12 @@ public class CardRedDragon extends MinionCard {
     private ClickListener clicker;
 
 
-    public CardRedDragon(Handler handler, int id){
-        super(handler, Assets.card_redDragon, id);
+    public CardRedDragon(Handler handler, int id, int playerNumber){
+        super(handler, Assets.card_redDragon, id, playerNumber);
+
+
+
+        this.setMana(3);
 
         this.mana = 3;
         this.movements = 4;
@@ -26,14 +30,18 @@ public class CardRedDragon extends MinionCard {
 
     @Override
     public void cast(Tile t){
+        if(manaCheck(handler.getBattle().getPlayer1())) {
 
-        Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1));
-        handler.getBattle().getEntityManager().addEntity(m);
-        m.setXPos(t.getxPos());
-        m.setYPos(t.getyPos());
+            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1));
+            handler.getBattle().getEntityManager().addEntity(m);
+            m.setXPos(t.getxPos());
+            m.setYPos(t.getyPos());
 
-        setInHand(false);
-        setInActive(true);
+            setInHand(false);
+            setInActive(true);
+            handler.getBattle().getPlayer1().subtractMana(this.mana);
+
+        }
     }
 
     @Override

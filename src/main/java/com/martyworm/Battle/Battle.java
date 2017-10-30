@@ -8,6 +8,7 @@ import com.martyworm.board.Board;
 import com.martyworm.board.Tile;
 import com.martyworm.board.TileManager;
 import com.martyworm.cards.individualCards.CardRedDragon;
+import com.martyworm.cards.individualCards.CardSkeleton;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
 import com.martyworm.gfx.Assets;
@@ -49,6 +50,8 @@ public class Battle {
         tileManager = new TileManager(handler);
         entityManager = new EntityManager(handler);
         player1 = new Player(handler, 1);
+        player2 = new Player(handler, 2);
+
 
         this.tiles = tileManager.getTiles();
         this.entities = entityManager.getEntities();
@@ -61,7 +64,8 @@ public class Battle {
             @Override
             public void onClick() {
                 System.out.println("clicked end turn");
-
+                passTurn();
+                System.out.println("player 1's turn? " + player1.isTurn() + " .. player 2's turn? " + player2.isTurn());
             }
         }));
 
@@ -69,13 +73,13 @@ public class Battle {
         //Will be refactored eventually
 //        entityManager.addEntity(new RedDragon(handler, 1));
 //        entityManager.addEntity(new RedDragon(handler, 2));
-//        entityManager.addEntity(new RedDragon(handler, 3));
-
-
-
-
+//        entityManager.addEntity(new Skeleton(handler, 9));
+//
+//
+//
+//
 //        for(Entity e : entities) {
-//            if (e.getId() == 1) {
+//            if (e.getId() == 9) {
 //                e.setXPos(getTile(253).getxPos());
 //                e.setYPos(getTile(253).getyPos());
 //
@@ -91,41 +95,41 @@ public class Battle {
 //        }
 
         for(int i = 0; i < 25; i++){
-            //player1.getCardManager().addCardToDeck(new CardSkeleton(handler, i));
-            player1.getCardManager().addCardToDeck(new CardRedDragon(handler, i));
+            player1.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 1));
+            player1.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 1));
         }
         player1.getCardManager().shuffle();
-        player1.getCardManager().deal(3);
-
+        player1.getCardManager().deal(6);
+        player1.setTurn(true);
 
     }
 
 
-        public void tick(){
+    public void tick(){
 
-            tileManager.tick();
-            uiManager.tick();
-            player1.tick();
-            entityManager.tick();
+        tileManager.tick();
+        uiManager.tick();
+        player1.tick();
+        entityManager.tick();
 
-        }
+    }
 
-        public void render(Graphics g){
+    public void render(Graphics g){
 
-            //Render Background Image
-            g.drawImage(Assets.backgroundImage, 0, 0, null);
-            g.drawImage(Assets.guiOverlay, 0, 0, null);
+        //Render Background Image
+        g.drawImage(Assets.backgroundImage, 0, 0, null);
+        g.drawImage(Assets.guiOverlay, 0, 0, null);
 
-            //UI
-            uiManager.render(g);
-            //Tiles
-            tileManager.render(g);
-            //Entities
-            entityManager.render(g);
-            //Players & Their decks
-            player1.render(g);
+        //UI
+        uiManager.render(g);
+        //Tiles
+        tileManager.render(g);
+        //Entities
+        entityManager.render(g);
+        //Players & Their decks
+        player1.render(g);
 
-        }
+    }
 
 //        private void takeTurn(Player player){
 //            if(player.isTurn()){
@@ -143,6 +147,17 @@ public class Battle {
 
         }
 
+    }
+
+    private void passTurn(){
+        if(player1.isTurn()){
+            player1.setTurn(false);
+            player2.setTurn(true);
+        }
+        else{
+            player2.setTurn(false);
+            player1.setTurn(true);
+        }
     }
 
     public Handler getHandler() {
@@ -199,5 +214,9 @@ public class Battle {
 
     public void setUiManager(UIManager uiManager) {
         this.uiManager = uiManager;
+    }
+
+    public Player getPlayer1() {
+        return player1;
     }
 }

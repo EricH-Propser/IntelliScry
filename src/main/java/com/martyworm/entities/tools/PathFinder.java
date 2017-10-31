@@ -2,9 +2,9 @@ package com.martyworm.entities.tools;
 
 
 import com.martyworm.Handler.Handler;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
-import com.martyworm.gui.Controller;
+import com.martyworm.gui.MouseController;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class PathFinder {
     private static Tile farthestTile;
     private static Tile destination;
 
-//    public static void highlightPath(Controller c, Entity e, ArrayList<Tile> tiles, int movesAvailable, ArrayList<Tile> movePath) {
+//    public static void highlightPath(MouseController c, Entity e, ArrayList<Tile> tiles, int movesAvailable, ArrayList<Tile> movePath) {
 //
 //        setMoveValues(tiles, e);
 //        destination = getDestination(tiles);
@@ -114,7 +114,7 @@ public class PathFinder {
     }
 
     //WORKING WITHOUT PATHFINDING
-    public static void highlightPath(Controller c, Entity e, Tile t) {
+    public static void highlightPath(MouseController c, Entity e, Tile t) {
 
         if (e.getOccupiedTileEnt() != null) {
 

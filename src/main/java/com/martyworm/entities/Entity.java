@@ -1,7 +1,7 @@
 package com.martyworm.entities;
 
 import com.martyworm.Handler.Handler;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;

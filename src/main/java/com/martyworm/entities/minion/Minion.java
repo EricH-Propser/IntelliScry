@@ -1,7 +1,7 @@
 package com.martyworm.entities.minion;
 
 import com.martyworm.Handler.Handler;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
 import com.martyworm.gfx.Animation;
 

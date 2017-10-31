@@ -3,7 +3,7 @@ package com.martyworm.cards;
 
 import com.martyworm.Handler.Handler;
 import com.martyworm.Player.Player;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -139,7 +139,7 @@ public class Card{
 
 
     public boolean hoveringOnRedTile(){
-        for(Tile t : handler.getBattle().getTiles()){
+        for(Tile t : handler.getBattle().getTileManager().getTiles()){
             if(handler.getController().getHitBox().intersects(t.getHitBox())){
                 if(t.isRedHighlight()){
                     return true;

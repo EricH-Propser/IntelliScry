@@ -2,14 +2,13 @@ package com.martyworm.game;
 
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.Board;
-import com.martyworm.board.Tile;
+import com.martyworm.board.exceptions.LoadingException;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.board.TileManager;
-import com.martyworm.config.PropertiesManager;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
-import com.martyworm.entities.minion.RedDragon;
 import com.martyworm.gfx.Assets;
-import com.martyworm.gui.Controller;
+import com.martyworm.gui.MouseController;
 import com.martyworm.gui.Gui;
 import com.martyworm.states.GameState;
 import com.martyworm.states.MenuState;
@@ -48,7 +47,7 @@ public class Game implements Runnable {
     private ArrayList<Tile> tiles;
 
     //Mouse input
-    private Controller controller;
+    private MouseController mouseController;
 
     //Handler
     private Handler handler;
@@ -59,17 +58,17 @@ public class Game implements Runnable {
         this.width = width;
         this.height = height;
         this.title = title;
-        this.controller = new Controller();
+        this.mouseController = new MouseController();
 
 
     }
 
-    private void init(){ //initialize the game and starting pieces/tiles
-        gui = new Gui(controller, title, width, height);
-        gui.getFrame().addMouseListener(controller);
-        gui.getFrame().addMouseMotionListener((MouseMotionListener) controller);
-        gui.getCanvas().addMouseListener(controller);
-        gui.getCanvas().addMouseMotionListener((MouseMotionListener) controller);
+    private void init() throws LoadingException{ //initialize the game and starting pieces/tiles
+        gui = new Gui(mouseController, title, width, height);
+        gui.getFrame().addMouseListener(mouseController);
+        gui.getFrame().addMouseMotionListener((MouseMotionListener) mouseController);
+        gui.getCanvas().addMouseListener(mouseController);
+        gui.getCanvas().addMouseMotionListener((MouseMotionListener) mouseController);
 
         //load assets(images etc)
         Assets.init();
@@ -112,7 +111,12 @@ public class Game implements Runnable {
 
     public void run(){
 
-        init();
+        try {
+            init();
+        } catch(LoadingException le){
+            System.out.println("Unable to initialize game: " + le.getMessage());
+            return;
+        }
 
         int fps = 60;
         double timePerTick = 1000000000 / fps;
@@ -191,12 +195,12 @@ public class Game implements Runnable {
         return this.height;
     }
 
-    public Controller getController() {
-        return controller;
+    public MouseController getMouseController() {
+        return mouseController;
     }
 
-    public void setController(Controller controller) {
-        this.controller = controller;
+    public void setMouseController(MouseController mouseController) {
+        this.mouseController = mouseController;
     }
 
     public ArrayList<Entity> getEntities() {

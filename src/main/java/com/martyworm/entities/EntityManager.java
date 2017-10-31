@@ -5,10 +5,9 @@ import java.util.ArrayList;
 
 
 import com.martyworm.Handler.Handler;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.minion.Minion;
 import com.martyworm.entities.tools.PathFinder;
-import com.martyworm.game.Game;
 
 
 public class EntityManager {

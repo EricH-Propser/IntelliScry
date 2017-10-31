@@ -70,7 +70,6 @@ public class Battle {
         }));
 
 
-
         for(int i = 0; i < 25; i++){
             player1.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 1));
             player1.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 1));
@@ -115,12 +114,6 @@ public class Battle {
         player2.render(g);
 
     }
-
-//        private void takeTurn(Player player){
-//            if(player.isTurn()){
-//                player.takeTurn();
-//            }
-//        }
 
 
     public Tile getTile(int tileId){

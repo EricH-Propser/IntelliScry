@@ -19,6 +19,7 @@ public class Minion extends Entity{
 
     //id
     protected int id;
+    protected String name;
 
     //Attack Timer
     private long lastAttackTimer;
@@ -33,7 +34,6 @@ public class Minion extends Entity{
 
     //test
     private Tile selectedTile;
-    private Tile checkPoint;
 
     public Minion(Handler handler, int id, BufferedImage[] images, int playerId) {
         super(handler, id, playerId);
@@ -55,10 +55,10 @@ public class Minion extends Entity{
     @Override
     public void render(Graphics g) {
 
-        if(id != 9) {
+        if(name != "Skeleton") {
             g.drawImage(getCurrentAnimationFrame(), xPos - 13/*offset the image size to hitBox*/, yPos - 10/*offset the image size to hitBox */, width+4, height+4, null);//should be width and height not ints
         }
-        if(id == 9){
+        else{
             g.drawImage(getCurrentAnimationFrame(), xPos -10/*offset the image size to hitBox*/, yPos - 10/*offset the image size to hitBox */, width-8, height-8, null);//should be width and height not ints
         }
 

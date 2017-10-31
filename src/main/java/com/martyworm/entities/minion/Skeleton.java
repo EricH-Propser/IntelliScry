@@ -11,6 +11,7 @@ public class Skeleton extends Minion {
         super(handler, id, Assets.skeleton_idle, playerId);
 
         this.id = 9;
+        this.name = "Skeleton";
 
         animIdle = new Animation(250, Assets.skeleton_idle);
         animAttack = new Animation(250, Assets.skeleton_idle);

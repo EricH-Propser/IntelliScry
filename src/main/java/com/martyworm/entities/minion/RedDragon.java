@@ -13,6 +13,7 @@ public class RedDragon extends Minion{
         super(handler, id, Assets.dragon_idle, playerId);
 
         this.id = id;
+        this.name = "RedDragon";
 
         animIdle = new Animation(250, Assets.dragon_idle);
         animAttack = new Animation(250, Assets.dragon_idle);

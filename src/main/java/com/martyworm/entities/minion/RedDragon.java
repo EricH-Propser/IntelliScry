@@ -9,8 +9,8 @@ import com.martyworm.gfx.Assets;
 
 public class RedDragon extends Minion{
 
-    public RedDragon(Handler handler, int id) {
-        super(handler, id, Assets.dragon_idle);
+    public RedDragon(Handler handler, int id, int playerId) {
+        super(handler, id, Assets.dragon_idle, playerId);
 
         this.id = id;
 

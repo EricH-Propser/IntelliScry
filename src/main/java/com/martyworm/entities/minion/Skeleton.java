@@ -7,8 +7,8 @@ import com.martyworm.gfx.Assets;
 
 public class Skeleton extends Minion {
 
-    public Skeleton(Handler handler, int id) {
-        super(handler, id, Assets.skeleton_idle);
+    public Skeleton(Handler handler, int id, int playerId) {
+        super(handler, id, Assets.skeleton_idle, playerId);
 
         this.id = 9;
 

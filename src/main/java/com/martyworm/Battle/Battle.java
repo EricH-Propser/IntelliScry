@@ -70,29 +70,6 @@ public class Battle {
         }));
 
 
-        //Will be refactored eventually
-//        entityManager.addEntity(new RedDragon(handler, 1));
-//        entityManager.addEntity(new RedDragon(handler, 2));
-//        entityManager.addEntity(new Skeleton(handler, 9));
-//
-//
-//
-//
-//        for(Entity e : entities) {
-//            if (e.getId() == 9) {
-//                e.setXPos(getTile(253).getxPos());
-//                e.setYPos(getTile(253).getyPos());
-//
-//            }
-//            if (e.getId() == 2) {
-//                e.setXPos(getTile(185).getxPos());
-//                e.setYPos(getTile(185).getyPos());
-//            }
-//            if (e.getId() == 3) {
-//                e.setXPos(getTile(52).getxPos());
-//                e.setYPos(getTile(52).getyPos());
-//            }
-//        }
 
         for(int i = 0; i < 25; i++){
             player1.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 1));
@@ -158,14 +135,8 @@ public class Battle {
     }
 
     private void passTurn(){
-        if(player1.isTurn()){
-            player1.setTurn(false);
-            player2.setTurn(true);
-        }
-        else{
-            player2.setTurn(false);
-            player1.setTurn(true);
-        }
+        player1.setTurn(!player1.isTurn());
+        player2.setTurn(!player2.isTurn());
     }
 
     public Player getCurrentPlayer(){

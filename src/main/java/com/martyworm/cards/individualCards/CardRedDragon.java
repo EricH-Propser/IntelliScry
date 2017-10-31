@@ -32,7 +32,7 @@ public class CardRedDragon extends MinionCard {
     public void cast(Tile t){
         if(manaCheck(handler.getBattle().getCurrentPlayer())) {
 
-            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1));
+            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1, handler.getBattle().getCurrentPlayer().getId()));
             handler.getBattle().getEntityManager().addEntity(m);
             m.setXPos(t.getxPos());
             m.setYPos(t.getyPos());

@@ -28,19 +28,21 @@ public class EntityManager {
         //movement
         getInput();
 
-        for(Entity e : entities){
+        for(Entity e : entities) {
             e.tick();
-            if(e.isSelected()){
+            if (e.getPlayerId() == handler.getBattle().getCurrentPlayer().getId()) {
+                if (e.isSelected()) {
 
-                if(e.getMovesAvailable() > 0 && handler.getBattle().getTileManager().getSelectedTile() != null){
-                    selectedTile = handler.getBattle().getTileManager().getSelectedTile();
+                    if (e.getMovesAvailable() > 0 && handler.getBattle().getTileManager().getSelectedTile() != null) {
+                        selectedTile = handler.getBattle().getTileManager().getSelectedTile();
+                    }
+                    showAvailableMoves(e);
+                    showPathFinder(e);
+                    move();
+
                 }
-                showAvailableMoves(e);
-                showPathFinder(e);
-                move();
-
+                updateHitBoxPosition();
             }
-            updateHitBoxPosition();
         }
 
     }
@@ -58,15 +60,15 @@ public class EntityManager {
 
         for(Entity e : entities){
 
+            if(e.getPlayerId() == handler.getBattle().getCurrentPlayer().getId()) {
+                setStartingSelectionVariables(e);
 
-            setStartingSelectionVariables(e);
+                toggleMinionDeselect(e);
 
-            toggleMinionDeselect(e);
+                toggleSpeed(e);
 
-            toggleSpeed(e);
-
-            toggleXAndYMove(e);
-
+                toggleXAndYMove(e);
+            }
         }
 
 

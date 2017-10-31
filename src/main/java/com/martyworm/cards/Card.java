@@ -149,11 +149,8 @@ public class Card{
         return false;
     }
 
-    public boolean manaCheck(Player player){
-        if((player.getMana() - mana) >= 0){
-            return true;
-        }
-        return false;
+    public boolean doesPlayerHaveEnoughMana(Player player){
+        return ((player.getMana() - mana) >= 0);
     }
 
 

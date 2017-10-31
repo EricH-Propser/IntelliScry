@@ -113,6 +113,8 @@ public class Player {
     }
 
     public void subtractMana(int num){
-        this.mana -= num;
+        if(this.mana - num >= 0) {
+            this.mana -= num;
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.martyworm.cards;
 
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.Player.Player;
 import com.martyworm.board.tiles.Tile;
 
 import java.awt.*;
@@ -29,18 +30,20 @@ public class Card{
 
     private boolean tapped;
     private boolean hovering;
-    private boolean selected;
+    protected boolean selected;
 
     private boolean inHand, inGrave, inActive, inDeck;
     protected boolean casted = false;
 
-    private int manaCost;
+    private int mana;
+    protected int playerNumber;
 
 
-    public Card(Handler handler, BufferedImage[] images, int id){
+    public Card(Handler handler, BufferedImage[] images, int id, int playerNumber){
         this.handler = handler;
         this.images = images;
         this.id = id;
+        this.playerNumber = playerNumber;
         this.xPos = 16000;
         this.yPos = 16000;
         this.height = SMALL_CARD_HEIGHT;
@@ -59,7 +62,7 @@ public class Card{
 
     public void render(Graphics g){
 
-        if(inHand) {
+        if (inHand || inActive) {
             if (tapped) {
                 g.drawImage(images[2], xPos, yPos, width, height, null);
             } else {
@@ -71,6 +74,8 @@ public class Card{
                 g.drawImage(images[0], ZOOM_SPOT_X, ZOOM_SPOT_Y, null);
             }
         }
+
+
         //Show Card Hit Boxes if needed
 //		g.setColor(Color.blue);
 //		g.fillRect((xPos), (yPos), hitBox.width, hitBox.height);
@@ -99,11 +104,10 @@ public class Card{
     public void onLeftMouseRelease(MouseEvent e){
 
         onClick();
-
         if(selected && hoveringOnRedTile()){
             cast(selectCastingTile());
             selected = false;
-            turnRedTilesOff();
+            turnRedTilesOff(playerNumber);
         }
 
     }
@@ -145,6 +149,15 @@ public class Card{
         return false;
     }
 
+    public boolean manaCheck(Player player){
+        if((player.getMana() - mana) >= 0){
+            return true;
+        }
+        return false;
+    }
+
+
+
     public void toRemove(ArrayList<Card> list){
         list.remove(this);
     }
@@ -153,9 +166,9 @@ public class Card{
         return handler.getBattle().getTileManager().getSelectedTile();
     }
 
-    protected void turnTilesRed(){}
+    protected void turnTilesRed(int playerId){}
 
-    protected void turnRedTilesOff(){}
+    protected void turnRedTilesOff(int playerId){}
 
     //GETTERS AND SETTERS
 
@@ -203,13 +216,15 @@ public class Card{
         this.id = id;
     }
 
-    public int getManaCost(){
-        return this.manaCost;
+    public int getMana(){
+        return this.mana;
     }
 
-    public void setManaCost(int manaCost) {
-        this.manaCost = manaCost;
+    public void setMana(int mana) {
+        this.mana = mana;
     }
+
+
 
     public int getId() {
         return id;
@@ -269,5 +284,13 @@ public class Card{
 
     public void setInDeck(boolean inDeck) {
         this.inDeck = inDeck;
+    }
+
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
     }
 }

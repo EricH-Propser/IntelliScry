@@ -9,6 +9,7 @@ import com.martyworm.board.exceptions.LoadingException;
 import com.martyworm.board.tiles.Tile;
 import com.martyworm.board.TileManager;
 import com.martyworm.cards.individualCards.CardRedDragon;
+import com.martyworm.cards.individualCards.CardSkeleton;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
 import com.martyworm.gfx.Assets;
@@ -51,6 +52,8 @@ public class Battle {
 
         entityManager = new EntityManager(handler);
         player1 = new Player(handler, 1);
+        player2 = new Player(handler, 2);
+
 
         this.entities = entityManager.getEntities();
 
@@ -64,47 +67,55 @@ public class Battle {
             @Override
             public void onClick() {
                 System.out.println("clicked end turn");
-
+                passTurn();
+                System.out.println("player 1's turn? " + player1.isTurn() + " .. player 2's turn? " + player2.isTurn());
             }
         }));
 
-
         for(int i = 0; i < 25; i++){
-            //player1.getCardManager().addCardToDeck(new CardSkeleton(handler, i));
-            player1.getCardManager().addCardToDeck(new CardRedDragon(handler, i));
+            player1.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 1));
+            player1.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 1));
         }
         player1.getCardManager().shuffle();
-        player1.getCardManager().deal(3);
+        player1.getCardManager().deal(7);
+        player1.setTurn(true);
 
-
+        for(int i = 0; i < 25; i++){
+            player2.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 2));
+            player2.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 2));
+        }
+        player2.getCardManager().shuffle();
+        player2.getCardManager().deal(7);
     }
 
 
-        public void tick(){
+    public void tick(){
 
-            tileManager.tick();
-            uiManager.tick();
-            player1.tick();
-            entityManager.tick();
+        tileManager.tick();
+        uiManager.tick();
+        player1.tick();
+        player2.tick();
+        entityManager.tick();
 
-        }
+    }
 
-        public void render(Graphics g){
+    public void render(Graphics g){
 
-            //Render Background Image
-            g.drawImage(Assets.backgroundImage, 0, 0, null);
-            g.drawImage(Assets.guiOverlay, 0, 0, null);
+        //Render Background Image
+        g.drawImage(Assets.backgroundImage, 0, 0, null);
+        g.drawImage(Assets.guiOverlay, 0, 0, null);
 
-            //UI
-            uiManager.render(g);
-            //Tiles
-            tileManager.render(g);
-            //Entities
-            entityManager.render(g);
-            //Players & Their decks
-            player1.render(g);
+        //UI
+        uiManager.render(g);
+        //Tiles
+        tileManager.render(g);
+        //Entities
+        entityManager.render(g);
+        //Players & Their decks
+        player1.render(g);
+        player2.render(g);
 
-        }
+    }
 
 //        private void takeTurn(Player player){
 //            if(player.isTurn()){
@@ -120,6 +131,22 @@ public class Battle {
         }
 
         return tileManager.getTiles().get(tileId);
+    }
+
+    private void passTurn(){
+        if(player1.isTurn()){
+            player1.setTurn(false);
+            player2.setTurn(true);
+        }
+        else{
+            player2.setTurn(false);
+            player1.setTurn(true);
+        }
+    }
+
+    public Player getCurrentPlayer(){
+        if(player1.isTurn()) return player1;
+        else return player2;
     }
 
     public Handler getHandler() {
@@ -168,5 +195,9 @@ public class Battle {
 
     public void setUiManager(UIManager uiManager) {
         this.uiManager = uiManager;
+    }
+
+    public Player getPlayer1() {
+        return player1;
     }
 }

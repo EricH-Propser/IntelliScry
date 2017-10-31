@@ -20,7 +20,10 @@ public class Player {
 
     //Mana
     private static final int PLAYER1_MANA_DISPLAY_SPOT_X = 154;
-    private static final int PLAYER1_MANA_DISPLAY_SPOT_Y = 842;
+    private static final int PLAYER1_MANA_DISPLAY_SPOT_Y = 848;
+    private static final int PLAYER2_MANA_DISPLAY_SPOT_X = 154;
+    private static final int PLAYER2_MANA_DISPLAY_SPOT_Y = 45;
+
     private int mana;
 
     private int id;
@@ -34,20 +37,32 @@ public class Player {
         this.id = id;
 
         this.cardManager = new CardManager(handler, this);
-        handler.getController().setCardManager(cardManager);
-        this.mana = 4;
+//        handler.getController().setCardManager(cardManager);
+        this.mana = 5;
 
     }
 
     public void tick(){
+
         cardManager.tick();
+        if(turn){
+            handler.getController().setCardManager(cardManager);
+        }
     }
 
     public void render(Graphics g) {
         cardManager.render(g);
-        for (int i = 0; i < 6; i++) {
-            if (mana == i) {
-                g.drawImage(Assets.manaBubble[i], PLAYER1_MANA_DISPLAY_SPOT_X, PLAYER1_MANA_DISPLAY_SPOT_Y, null);
+        if(id == 1) {
+            for (int i = 0; i < 6; i++) {
+                if (mana == i) {
+                    g.drawImage(Assets.manaBubble[i], PLAYER1_MANA_DISPLAY_SPOT_X, PLAYER1_MANA_DISPLAY_SPOT_Y, null);
+                }
+            }
+        }else if (id == 2){
+            for (int i = 0; i < 6; i++) {
+                if (mana == i) {
+                    g.drawImage(Assets.manaBubble[i], PLAYER2_MANA_DISPLAY_SPOT_X, PLAYER2_MANA_DISPLAY_SPOT_Y, null);
+                }
             }
         }
     }
@@ -89,5 +104,15 @@ public class Player {
         this.turn = turn;
     }
 
+    public int getMana() {
+        return mana;
+    }
 
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public void subtractMana(int num){
+        this.mana -= num;
+    }
 }

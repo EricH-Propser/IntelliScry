@@ -54,8 +54,13 @@ public class Minion extends Entity{
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(getCurrentAnimationFrame(), xPos-22/*offset the image size to hitBox*/, yPos-22/*offset the image size to hitBox */, width, height, null);//should be width and height not ints
 
+        if(id != 9) {
+            g.drawImage(getCurrentAnimationFrame(), xPos - 13/*offset the image size to hitBox*/, yPos - 10/*offset the image size to hitBox */, width+4, height+4, null);//should be width and height not ints
+        }
+        if(id == 9){
+            g.drawImage(getCurrentAnimationFrame(), xPos -10/*offset the image size to hitBox*/, yPos - 10/*offset the image size to hitBox */, width-8, height-8, null);//should be width and height not ints
+        }
 
         //VISUALS FOR HITBOX if needed
 //		g.setColor(Color.cyan);

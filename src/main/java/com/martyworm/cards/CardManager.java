@@ -31,8 +31,13 @@ public class CardManager {
             c.tick();
         }
 
+
         organizeHandForDisplay(sortAndUpdateHand());
+        organizeActiveForDisplay(sortAndUpdateActive());
+
         turnOffRedTilesWhileNoCardSelected();
+
+
     }
 
     public void render(Graphics g){
@@ -95,32 +100,81 @@ public class CardManager {
     }
 
     private void organizeHandForDisplay(ArrayList<Card> hand){
-        int x = 0;
-        hand.sort(Comparator.comparingInt(Card::getId));
-        for(Card c : hand) {
-            c.setxPos(320 + x);
-            c.setyPos(819);
-            if (hand.size() > 9) {
-                x += Card.SMALL_CARD_WIDTH;
-            } else {
-                x += Card.SMALL_CARD_WIDTH + 15;
-            }
 
+        int x = 0;
+        int y = 0;
+        for(Card c : hand) {
+            if(c.getPlayerNumber() == 1) {
+                c.setxPos(320 + x);
+                c.setyPos(819);
+                if (hand.size() > 9) {
+                    x += Card.SMALL_CARD_WIDTH;
+                } else {
+                    x += Card.SMALL_CARD_WIDTH + 15;
+                }
+            }
+            else if(c.getPlayerNumber() == 2){
+                c.setxPos(320 + y);
+                c.setyPos(20);
+                if (hand.size() > 9) {
+                    y += Card.SMALL_CARD_WIDTH;
+                } else {
+                    y += Card.SMALL_CARD_WIDTH + 15;
+                }
+            }
         }
     }
 
+    public ArrayList<Card> sortAndUpdateActive(){
 
+        ArrayList<Card> active = new ArrayList<>();
+
+        for(Card c : cards) {
+
+            if (c != null && c.isInActive()) {
+                if(!active.contains(c)) {
+                    active.add(c);
+                }
+
+            }
+            if(!c.isInActive() && active.contains(c)){
+                active.remove(c);
+            }
+
+        }
+        return active;
+    }
+
+
+    private void organizeActiveForDisplay(ArrayList<Card> active){
+        int x = 0;
+        int y = 0;
+        for(Card c : active) {
+            if (c.getPlayerNumber() == 1) {
+                c.setxPos(1225 + x);
+                c.setyPos(510);
+                if (active.size() > 9) {
+                    x += Card.SMALL_CARD_WIDTH;
+                } else {
+                    x += Card.SMALL_CARD_WIDTH + 10;
+                }
+            }
+            else if(c.getPlayerNumber() == 2){
+                c.setxPos(1225 + y);
+                c.setyPos(204);
+                if (active.size() > 9) {
+                    y += Card.SMALL_CARD_WIDTH;
+                } else {
+                    y += Card.SMALL_CARD_WIDTH + 10;
+                }
+            }
+        }
+    }
 
     public void shuffle(){
-        ArrayList<Card> deck = new ArrayList<>();
-        for(Card c : cards){
-            if(c.isInDeck()){
-                deck.add(c);
-            }
-        }
-        Collections.shuffle(deck);
-    }
 
+        Collections.shuffle(cards);
+    }
 
 
 
@@ -141,7 +195,7 @@ public class CardManager {
                 }
             }
             if(c.isHovering()){
-              c.setSelected(true);
+                c.setSelected(true);
             }
             if(c.isSelected()) {
                 c.onLeftMouseRelease(e);
@@ -172,7 +226,7 @@ public class CardManager {
     private void turnOffRedTilesWhileNoCardSelected(){
         for(Card c : sortAndUpdateHand()) {
             if (noneSelected(sortAndUpdateHand())) {
-                c.turnRedTilesOff();
+                c.turnRedTilesOff(c.playerNumber);
             }
         }
     }
@@ -186,5 +240,9 @@ public class CardManager {
 
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

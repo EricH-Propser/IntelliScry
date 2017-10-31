@@ -10,13 +10,13 @@ public class MinionCard extends Card {
     protected int mana, movements, spells, health;
 
 
-    public MinionCard(Handler handler, BufferedImage[] images, int id){
-        super(handler, images, id);
+    public MinionCard(Handler handler, BufferedImage[] images, int id, int playerNumber){
+
+        super(handler, images, id, playerNumber);
     }
 
     @Override
     public void onClick(){
-
     }
 
     @Override

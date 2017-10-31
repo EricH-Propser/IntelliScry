@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class Game implements Runnable {
 
-    //TEST COMMENT FOR GIT
+
     private Gui gui;
     public int width, height;
     public String title;
@@ -65,7 +65,6 @@ public class Game implements Runnable {
     }
 
     private void init(){ //initialize the game and starting pieces/tiles
-
         gui = new Gui(controller, title, width, height);
         gui.getFrame().addMouseListener(controller);
         gui.getFrame().addMouseMotionListener((MouseMotionListener) controller);
@@ -75,14 +74,14 @@ public class Game implements Runnable {
         //load assets(images etc)
         Assets.init();
 
-
         handler = new Handler(this);
+
         gameState = new GameState(handler);
         menuState = new MenuState(handler);
         State.setState(menuState);
 
-    }
 
+    }
 
     public void tick(){
         if(State.getState() != null)
@@ -104,6 +103,7 @@ public class Game implements Runnable {
 
         if(State.getState() != null)
             State.getState().render(g);
+
 
         bs.show();
         g.dispose();
@@ -223,6 +223,8 @@ public class Game implements Runnable {
         this.entityManager = entityManager;
     }
 
+
+
     public TileManager getTileManager() {
         return tileManager;
     }
@@ -230,5 +232,7 @@ public class Game implements Runnable {
     public void setTileManager(TileManager tileManager) {
         this.tileManager = tileManager;
     }
+
+
 
 }

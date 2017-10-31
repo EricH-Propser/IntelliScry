@@ -2,6 +2,7 @@ package com.martyworm.cards;
 
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.Player.Player;
 import com.martyworm.board.Tile;
 
 import java.awt.*;
@@ -29,18 +30,19 @@ public class Card{
 
     private boolean tapped;
     private boolean hovering;
-    private boolean selected;
+    protected boolean selected;
 
     private boolean inHand, inGrave, inActive, inDeck;
     protected boolean casted = false;
 
-    private int manaCost;
+    private int mana;
+    private int playerNumber;
 
-
-    public Card(Handler handler, BufferedImage[] images, int id){
+    public Card(Handler handler, BufferedImage[] images, int id, int playerNumber){
         this.handler = handler;
         this.images = images;
         this.id = id;
+        this.playerNumber = playerNumber;
         this.xPos = 16000;
         this.yPos = 16000;
         this.height = SMALL_CARD_HEIGHT;
@@ -59,18 +61,22 @@ public class Card{
 
     public void render(Graphics g){
 
-        if(inHand) {
-            if (tapped) {
-                g.drawImage(images[2], xPos, yPos, width, height, null);
-            } else {
-                g.drawImage(images[1], xPos, yPos, width, height, null);
+        if(playerNumber == 1) {
+            if (inHand || inActive) {
+                if (tapped) {
+                    g.drawImage(images[2], xPos, yPos, width, height, null);
+                } else {
+                    g.drawImage(images[1], xPos, yPos, width, height, null);
 
-            }
+                }
 
-            if (hovering) {
-                g.drawImage(images[0], ZOOM_SPOT_X, ZOOM_SPOT_Y, null);
+                if (hovering) {
+                    g.drawImage(images[0], ZOOM_SPOT_X, ZOOM_SPOT_Y, null);
+                }
             }
         }
+
+
         //Show Card Hit Boxes if needed
 //		g.setColor(Color.blue);
 //		g.fillRect((xPos), (yPos), hitBox.width, hitBox.height);
@@ -99,7 +105,6 @@ public class Card{
     public void onLeftMouseRelease(MouseEvent e){
 
         onClick();
-
         if(selected && hoveringOnRedTile()){
             cast(selectCastingTile());
             selected = false;
@@ -141,6 +146,13 @@ public class Card{
                     return true;
                 }
             }
+        }
+        return false;
+    }
+
+    public boolean manaCheck(Player player){
+        if((player.getMana() - mana) >= 0){
+            return true;
         }
         return false;
     }
@@ -203,13 +215,15 @@ public class Card{
         this.id = id;
     }
 
-    public int getManaCost(){
-        return this.manaCost;
+    public int getMana(){
+        return this.mana;
     }
 
-    public void setManaCost(int manaCost) {
-        this.manaCost = manaCost;
+    public void setMana(int mana) {
+        this.mana = mana;
     }
+
+
 
     public int getId() {
         return id;
@@ -269,5 +283,13 @@ public class Card{
 
     public void setInDeck(boolean inDeck) {
         this.inDeck = inDeck;
+    }
+
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
     }
 }

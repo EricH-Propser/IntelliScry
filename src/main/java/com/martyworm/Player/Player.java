@@ -34,13 +34,17 @@ public class Player {
         this.id = id;
 
         this.cardManager = new CardManager(handler, this);
-        handler.getController().setCardManager(cardManager);
-        this.mana = 4;
+//        handler.getController().setCardManager(cardManager);
+        this.mana = 5;
 
     }
 
     public void tick(){
+
         cardManager.tick();
+        if(turn){
+            handler.getController().setCardManager(cardManager);
+        }
     }
 
     public void render(Graphics g) {
@@ -89,5 +93,15 @@ public class Player {
         this.turn = turn;
     }
 
+    public int getMana() {
+        return mana;
+    }
 
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public void subtractMana(int num){
+        this.mana -= num;
+    }
 }

@@ -5,7 +5,8 @@ package com.martyworm.Battle;
 import com.martyworm.Handler.Handler;
 import com.martyworm.Player.Player;
 import com.martyworm.board.Board;
-import com.martyworm.board.Tile;
+import com.martyworm.board.exceptions.LoadingException;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.board.TileManager;
 import com.martyworm.cards.individualCards.CardRedDragon;
 import com.martyworm.entities.Entity;
@@ -17,6 +18,7 @@ import com.martyworm.ui.UIManager;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Battle {
 
@@ -29,7 +31,7 @@ public class Battle {
 
     //Board
     private Board board;
-    private ArrayList<Tile> tiles;
+    private List<Tile> tiles;
     private TileManager tileManager;
 
     //Players
@@ -39,7 +41,7 @@ public class Battle {
     //UIManager
     private UIManager uiManager;
 
-    public Battle(Handler handler){
+    public Battle(Handler handler) throws LoadingException{
         this.handler = handler;
 
         this.board = new Board(handler);
@@ -55,7 +57,9 @@ public class Battle {
 
 
         //initialize board
-        Board.initBoard(this.tiles);
+        String boardData = Board.loadBoardFile("worlds/world3.txt");
+        this.tiles = Board.loadTiles(boardData);
+
 
         uiManager.addObject(new UIImageButton(1340, 840, 128, 64, Assets.endTurnButton, new ClickListener() {
             @Override
@@ -177,11 +181,11 @@ public class Battle {
         this.board = board;
     }
 
-    public ArrayList<Tile> getTiles() {
+    public List<Tile> getTiles() {
         return tiles;
     }
 
-    public void setTiles(ArrayList<Tile> tiles) {
+    public void setTiles(List<Tile> tiles) {
         this.tiles = tiles;
     }
 

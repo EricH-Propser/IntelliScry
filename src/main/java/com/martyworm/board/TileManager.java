@@ -1,6 +1,7 @@
 package com.martyworm.board;
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
 
 import java.awt.Graphics;

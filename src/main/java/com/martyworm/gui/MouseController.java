@@ -10,7 +10,7 @@ import com.martyworm.cards.CardManager;
 import com.martyworm.ui.UIManager;
 
 
-public class Controller implements MouseInputListener{
+public class MouseController implements MouseInputListener{
 
     private boolean leftPressed, rightPressed, clicked;
     private int mouseX, mouseY;
@@ -18,7 +18,7 @@ public class Controller implements MouseInputListener{
     private UIManager uiManager;
     private Rectangle hitBox;
 
-    public Controller(){
+    public MouseController(){
         this.hitBox = new Rectangle(mouseX, mouseY, 1, 1);
 
     }
@@ -34,40 +34,25 @@ public class Controller implements MouseInputListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getButton() == MouseEvent.BUTTON1){
-            leftPressed = true;
-        }
-        else if(e.getButton() == MouseEvent.BUTTON3){
-            rightPressed = true;
-        }
+        leftPressed = e.getButton() == MouseEvent.BUTTON1;
+        rightPressed = e.getButton() == MouseEvent.BUTTON3;
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if(e.getButton() == MouseEvent.BUTTON1){
+
+        if(e.getButton() == MouseEvent.BUTTON1) {
             leftPressed = false;
-            if(uiManager != null){
-                uiManager.onMouseRelease(e);
-            }
-            if(cardManager != null){
-                cardManager.onLeftMouseReleased(e);
-            }
         }
-        else if(e.getButton() == MouseEvent.BUTTON3){
+        if(e.getButton() == MouseEvent.BUTTON3){
             rightPressed = false;
-            if(uiManager != null){
-                uiManager.onMouseRelease(e);
-            }
-            if(cardManager != null){
-                cardManager.onRightMouseReleased(e);
-            }
         }
-//        if(uiManager != null){
-//            uiManager.onMouseRelease(e);
-//        }
-//        if(cardManager != null){
-//            cardManager.onMouseRelease(e);
-//        }
+        if(uiManager != null){
+            uiManager.onMouseRelease(e);
+        }
+        if(cardManager != null){
+            cardManager.onLeftMouseReleased(e);
+        }
 
     }
 
@@ -77,22 +62,20 @@ public class Controller implements MouseInputListener{
         mouseX = e.getX();
         mouseY = e.getY();
 
+        hitBox.x = mouseX;
+        hitBox.y = mouseY;
+
         if(uiManager != null){
             uiManager.onMouseMove(e);
         }
         if(cardManager != null) {
             cardManager.onMouseMove(e);
         }
-
-
-
     }
 
 
 
-
     public void mouseDragged(MouseEvent e) {
-
 
     }
 
@@ -100,19 +83,16 @@ public class Controller implements MouseInputListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         clicked = true;
-
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
-
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
-
     }
 
 
@@ -121,8 +101,6 @@ public class Controller implements MouseInputListener{
     }
 
     public Rectangle getHitBox() {
-        hitBox.x = mouseX;
-        hitBox.y = mouseY;
         return this.hitBox;
     }
 
@@ -143,10 +121,5 @@ public class Controller implements MouseInputListener{
     public boolean isClicked() {
         return clicked;
     }
-
-    public void setClicked(boolean clicked) {
-        this.clicked = clicked;
-    }
-
 
 }

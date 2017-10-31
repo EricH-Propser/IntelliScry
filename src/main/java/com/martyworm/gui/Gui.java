@@ -13,7 +13,7 @@ public class Gui {
     private String title;
     private int width, height;
 
-    public Gui(Controller controller, String title, int width, int height){
+    public Gui(MouseController mouseController, String title, int width, int height){
         this.title = title;
         this.width = width;
         this.height = height;

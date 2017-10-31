@@ -25,13 +25,11 @@ public class TileManager {
     public void tick(){
         for(Tile t : tiles){
             t.tick();
-            getInput(t);
+            getInput(t); //this seems like a really bad idea, this class should have 1 job
         }
     }
 
     public void render(Graphics g){
-
-        //game calls this render which in turn renders each tile
         for(Tile t : tiles){
             t.render(g);
         }
@@ -63,46 +61,39 @@ public class TileManager {
     }
 
     private void entityBooleanInput(Tile t){
-        //For all the entities in the game
         for(Entity e : handler.getBattle().getEntityManager().getEntities()){
             if(e.isSelected()){
                 updateSemiHiTiles(t);
 
             }
-            //if tile's hitbox contains an entity hitbox then set tile to occupied
-            if(t.getHitBox().contains(e.getHitBox())){
-                t.setOccupied(true);
-            }
 
-            //default is to set occupied to false
-            else{
-                t.setOccupied(false);
-            }
-
+            t.setOccupied(t.getHitBox().contains(e.getHitBox()));
         }
     }
 
     private void mouseBooleanInput(Tile t){
-        if(handler.getController().getHitBox().intersects(t.getHitBox())){//Hovering check could be questionable
+
+        t.setHovering(false);
+
+        if(handler.getController().getHitBox().intersects(t.getHitBox())){ //this should be passed in
             t.setHovering(true);
-            if(handler.getController().isLeftPressed()){//if mouse left clicked
+            if(handler.getController().isLeftPressed()){
                 for(Tile y : tiles){
-                    y.setSelected(false);
+                    y.setSelected(false); //this is called in a loop, then we loop again, seems wasteful
                 }
                 t.setSelected(true);
             }
-        }else{
-            t.setHovering(false);
         }
     }
 
 
     private void updateSemiHiTiles(Tile t){
-        if(t.isSemiHighlited() && !semiHiTiles.contains(t)){
+        if(t.isSemiHighlited() && !semiHiTiles.contains(t)){ //consider a set instead of a list to remove duplicates
             semiHiTiles.add(t);
+            return;
         }
 
-        else if(!t.isSemiHighlited() && semiHiTiles.contains(t)){
+        if(!t.isSemiHighlited() && semiHiTiles.contains(t)){
             semiHiTiles.remove(t);
         }
 

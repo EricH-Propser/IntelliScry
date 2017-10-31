@@ -3,7 +3,7 @@ package com.martyworm.Handler;
 
 import com.martyworm.Battle.Battle;
 import com.martyworm.game.Game;
-import com.martyworm.gui.Controller;
+import com.martyworm.gui.MouseController;
 
 public class Handler {
 
@@ -14,8 +14,8 @@ public class Handler {
         this.game = game;
     }
 
-    public Controller getController(){
-        return game.getController();
+    public MouseController getController(){
+        return game.getMouseController();
     }
 
     public int getWidth(){

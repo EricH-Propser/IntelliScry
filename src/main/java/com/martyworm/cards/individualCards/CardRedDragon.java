@@ -30,9 +30,9 @@ public class CardRedDragon extends MinionCard {
 
     @Override
     public void cast(Tile t){
-        if(manaCheck(handler.getBattle().getCurrentPlayer())) {
+        if(doesPlayerHaveEnoughMana(handler.getBattle().getCurrentPlayer())) {
 
-            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1));
+            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1, handler.getBattle().getCurrentPlayer().getId()));
             handler.getBattle().getEntityManager().addEntity(m);
             m.setXPos(t.getxPos());
             m.setYPos(t.getyPos());

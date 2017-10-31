@@ -72,20 +72,20 @@ public class Battle {
             }
         }));
 
+
         for(int i = 0; i < 25; i++){
             player1.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 1));
             player1.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 1));
-        }
-        player1.getCardManager().shuffle();
-        player1.getCardManager().deal(7);
-        player1.setTurn(true);
-
-        for(int i = 0; i < 25; i++){
             player2.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 2));
             player2.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 2));
         }
+        player1.getCardManager().shuffle();
+        player1.getCardManager().deal(7);
         player2.getCardManager().shuffle();
         player2.getCardManager().deal(7);
+        player1.setTurn(true);
+
+
     }
 
 
@@ -117,12 +117,6 @@ public class Battle {
 
     }
 
-//        private void takeTurn(Player player){
-//            if(player.isTurn()){
-//                player.takeTurn();
-//            }
-//        }
-
 
     public Tile getTile(int tileId){
         //Need to make sure not null when calling this
@@ -134,14 +128,8 @@ public class Battle {
     }
 
     private void passTurn(){
-        if(player1.isTurn()){
-            player1.setTurn(false);
-            player2.setTurn(true);
-        }
-        else{
-            player2.setTurn(false);
-            player1.setTurn(true);
-        }
+        player1.setTurn(!player1.isTurn());
+        player2.setTurn(!player2.isTurn());
     }
 
     public Player getCurrentPlayer(){

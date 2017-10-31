@@ -35,8 +35,8 @@ public class Minion extends Entity{
     private Tile selectedTile;
     private Tile checkPoint;
 
-    public Minion(Handler handler, int id, BufferedImage[] images) {
-        super(handler, id);
+    public Minion(Handler handler, int id, BufferedImage[] images, int playerId) {
+        super(handler, id, playerId);
         movePath = new ArrayList<Tile>();
         for(int i = 0; i < movesAvailable + 1; i++){
             movePath.add(i, null);

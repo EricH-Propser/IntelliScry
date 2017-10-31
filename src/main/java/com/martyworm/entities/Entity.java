@@ -18,6 +18,7 @@ public abstract class Entity {
     public static final int DEFAULT_TILE_MOVEMENT = 4;
 
     private int id;
+    protected int playerId;
 
     protected Handler handler;
     protected int speed;
@@ -36,9 +37,10 @@ public abstract class Entity {
 
     protected Rectangle hitBox;
 
-    public Entity(Handler handler, int id){
+    public Entity(Handler handler, int id, int playerId){
         this.handler = handler;
         this.id = id;
+        this.playerId = playerId;
         this.movesAvailable = DEFAULT_TILE_MOVEMENT;
         health = DEFAULT_HEALTH;
         speed = DEFAULT_SPEED;
@@ -226,5 +228,11 @@ public abstract class Entity {
         this.id = id;
     }
 
+    public int getPlayerId() {
+        return playerId;
+    }
 
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
+    }
 }

@@ -2,7 +2,7 @@ package com.martyworm.cards.individualCards;
 
 
 import com.martyworm.Handler.Handler;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.cards.MinionCard;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.minion.Minion;

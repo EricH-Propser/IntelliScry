@@ -1,22 +1,25 @@
 package com.martyworm.board;
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TileManager {
 
     private Handler handler;
-    private ArrayList<Tile> tiles = new ArrayList<>();
+    private List<Tile> tiles;
     private ArrayList<Tile> semiHiTiles;
 
 
-    public TileManager(Handler handler){
+    public TileManager(Handler handler, List<Tile> boardTiles){
         this.handler = handler;
         semiHiTiles = new ArrayList<>();
+        this.tiles = boardTiles;
     }
 
     public void tick(){
@@ -107,8 +110,6 @@ public class TileManager {
 
 
     //Getters & Setters
-
-
     public Handler getHandler() {
         return handler;
     }
@@ -117,16 +118,11 @@ public class TileManager {
         this.handler = handler;
     }
 
-
-//    public void setMinion(Tile tile) {
-//        this.tile = tile;
-//    }
-
-    public ArrayList<Tile> getTiles() {
+    public List<Tile> getTiles() {
         return tiles;
     }
 
-    public ArrayList<Tile> getSemiHiTiles() {
+    public List<Tile> getSemiHiTiles() {
         return semiHiTiles;
     }
 

@@ -2,12 +2,11 @@ package com.martyworm.game;
 
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.Board;
-import com.martyworm.board.Tile;
+import com.martyworm.board.exceptions.LoadingException;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.board.TileManager;
-import com.martyworm.config.PropertiesManager;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
-import com.martyworm.entities.minion.RedDragon;
 import com.martyworm.gfx.Assets;
 import com.martyworm.gui.Controller;
 import com.martyworm.gui.Gui;
@@ -64,7 +63,7 @@ public class Game implements Runnable {
 
     }
 
-    private void init(){ //initialize the game and starting pieces/tiles
+    private void init() throws LoadingException{ //initialize the game and starting pieces/tiles
         gui = new Gui(controller, title, width, height);
         gui.getFrame().addMouseListener(controller);
         gui.getFrame().addMouseMotionListener((MouseMotionListener) controller);
@@ -112,7 +111,12 @@ public class Game implements Runnable {
 
     public void run(){
 
-        init();
+        try {
+            init();
+        } catch(LoadingException le){
+            System.out.println("Unable to initialize game: " + le.getMessage());
+            return;
+        }
 
         int fps = 60;
         double timePerTick = 1000000000 / fps;

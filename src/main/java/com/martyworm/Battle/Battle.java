@@ -5,7 +5,8 @@ package com.martyworm.Battle;
 import com.martyworm.Handler.Handler;
 import com.martyworm.Player.Player;
 import com.martyworm.board.Board;
-import com.martyworm.board.Tile;
+import com.martyworm.board.exceptions.LoadingException;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.board.TileManager;
 import com.martyworm.cards.individualCards.CardRedDragon;
 import com.martyworm.cards.individualCards.CardSkeleton;
@@ -18,6 +19,7 @@ import com.martyworm.ui.UIManager;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Battle {
 
@@ -30,7 +32,7 @@ public class Battle {
 
     //Board
     private Board board;
-    private ArrayList<Tile> tiles;
+    //private List<Tile> tiles;
     private TileManager tileManager;
 
     //Players
@@ -40,25 +42,26 @@ public class Battle {
     //UIManager
     private UIManager uiManager;
 
-    public Battle(Handler handler){
+    public Battle(Handler handler) throws LoadingException{
         this.handler = handler;
 
         this.board = new Board(handler);
 
         uiManager = new UIManager(handler);
 
-        tileManager = new TileManager(handler);
+
         entityManager = new EntityManager(handler);
         player1 = new Player(handler, 1);
         player2 = new Player(handler, 2);
 
 
-        this.tiles = tileManager.getTiles();
         this.entities = entityManager.getEntities();
 
 
         //initialize board
-        Board.initBoard(this.tiles);
+        String boardData = Board.loadBoardFile("worlds/world3.txt");
+        List<Tile> tiles = Board.loadTiles(boardData);
+        tileManager = new TileManager(handler, tiles);
 
         uiManager.addObject(new UIImageButton(1340, 840, 128, 64, Assets.endTurnButton, new ClickListener() {
             @Override
@@ -68,31 +71,6 @@ public class Battle {
                 System.out.println("player 1's turn? " + player1.isTurn() + " .. player 2's turn? " + player2.isTurn());
             }
         }));
-
-
-        //Will be refactored eventually
-//        entityManager.addEntity(new RedDragon(handler, 1));
-//        entityManager.addEntity(new RedDragon(handler, 2));
-//        entityManager.addEntity(new Skeleton(handler, 9));
-//
-//
-//
-//
-//        for(Entity e : entities) {
-//            if (e.getId() == 9) {
-//                e.setXPos(getTile(253).getxPos());
-//                e.setYPos(getTile(253).getyPos());
-//
-//            }
-//            if (e.getId() == 2) {
-//                e.setXPos(getTile(185).getxPos());
-//                e.setYPos(getTile(185).getyPos());
-//            }
-//            if (e.getId() == 3) {
-//                e.setXPos(getTile(52).getxPos());
-//                e.setYPos(getTile(52).getyPos());
-//            }
-//        }
 
         for(int i = 0; i < 25; i++){
             player1.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 1));
@@ -148,13 +126,11 @@ public class Battle {
 
     public Tile getTile(int tileId){
         //Need to make sure not null when calling this
-        if (tileId < 0 || tileId >= tiles.size()) {
+        if (tileId < 0 || tileId >= tileManager.getTiles().size()) {
             return null;
-        }else{
-            return tiles.get(tileId);
-
         }
 
+        return tileManager.getTiles().get(tileId);
     }
 
     private void passTurn(){
@@ -203,14 +179,6 @@ public class Battle {
 
     public void setBoard(Board board) {
         this.board = board;
-    }
-
-    public ArrayList<Tile> getTiles() {
-        return tiles;
-    }
-
-    public void setTiles(ArrayList<Tile> tiles) {
-        this.tiles = tiles;
     }
 
     public TileManager getTileManager() {

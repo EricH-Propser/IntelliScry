@@ -2,6 +2,7 @@ package com.martyworm.states;
 
 import com.martyworm.Battle.Battle;
 import com.martyworm.Handler.Handler;
+import com.martyworm.board.exceptions.LoadingException;
 
 import java.awt.Graphics;
 
@@ -9,7 +10,7 @@ public class GameState extends State {
 
     private Battle battle;
 
-    public GameState(Handler handler) {
+    public GameState(Handler handler) throws LoadingException {
         super(handler);
         battle = new Battle(handler);
         handler.setBattle(battle);

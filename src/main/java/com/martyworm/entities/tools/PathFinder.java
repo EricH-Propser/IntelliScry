@@ -2,7 +2,7 @@ package com.martyworm.entities.tools;
 
 
 import com.martyworm.Handler.Handler;
-import com.martyworm.board.Tile;
+import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
 import com.martyworm.gui.Controller;
 

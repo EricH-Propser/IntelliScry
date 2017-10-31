@@ -135,7 +135,7 @@ public class Card{
 
 
     public boolean hoveringOnRedTile(){
-        for(Tile t : handler.getBattle().getTiles()){
+        for(Tile t : handler.getBattle().getTileManager().getTiles()){
             if(handler.getController().getHitBox().intersects(t.getHitBox())){
                 if(t.isRedHighlight()){
                     return true;

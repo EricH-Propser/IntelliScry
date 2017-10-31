@@ -31,7 +31,7 @@ public class Battle {
 
     //Board
     private Board board;
-    private List<Tile> tiles;
+    //private List<Tile> tiles;
     private TileManager tileManager;
 
     //Players
@@ -48,18 +48,17 @@ public class Battle {
 
         uiManager = new UIManager(handler);
 
-        tileManager = new TileManager(handler);
+
         entityManager = new EntityManager(handler);
         player1 = new Player(handler, 1);
 
-        this.tiles = tileManager.getTiles();
         this.entities = entityManager.getEntities();
 
 
         //initialize board
         String boardData = Board.loadBoardFile("worlds/world3.txt");
-        this.tiles = Board.loadTiles(boardData);
-
+        List<Tile> tiles = Board.loadTiles(boardData);
+        tileManager = new TileManager(handler, tiles);
 
         uiManager.addObject(new UIImageButton(1340, 840, 128, 64, Assets.endTurnButton, new ClickListener() {
             @Override
@@ -69,30 +68,6 @@ public class Battle {
             }
         }));
 
-
-        //Will be refactored eventually
-//        entityManager.addEntity(new RedDragon(handler, 1));
-//        entityManager.addEntity(new RedDragon(handler, 2));
-//        entityManager.addEntity(new RedDragon(handler, 3));
-
-
-
-
-//        for(Entity e : entities) {
-//            if (e.getId() == 1) {
-//                e.setXPos(getTile(253).getxPos());
-//                e.setYPos(getTile(253).getyPos());
-//
-//            }
-//            if (e.getId() == 2) {
-//                e.setXPos(getTile(185).getxPos());
-//                e.setYPos(getTile(185).getyPos());
-//            }
-//            if (e.getId() == 3) {
-//                e.setXPos(getTile(52).getxPos());
-//                e.setYPos(getTile(52).getyPos());
-//            }
-//        }
 
         for(int i = 0; i < 25; i++){
             //player1.getCardManager().addCardToDeck(new CardSkeleton(handler, i));
@@ -140,13 +115,11 @@ public class Battle {
 
     public Tile getTile(int tileId){
         //Need to make sure not null when calling this
-        if (tileId < 0 || tileId >= tiles.size()) {
+        if (tileId < 0 || tileId >= tileManager.getTiles().size()) {
             return null;
-        }else{
-            return tiles.get(tileId);
-
         }
 
+        return tileManager.getTiles().get(tileId);
     }
 
     public Handler getHandler() {
@@ -179,14 +152,6 @@ public class Battle {
 
     public void setBoard(Board board) {
         this.board = board;
-    }
-
-    public List<Tile> getTiles() {
-        return tiles;
-    }
-
-    public void setTiles(List<Tile> tiles) {
-        this.tiles = tiles;
     }
 
     public TileManager getTileManager() {

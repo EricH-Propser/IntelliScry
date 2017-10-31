@@ -99,9 +99,15 @@ public class Battle {
             player1.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 1));
         }
         player1.getCardManager().shuffle();
-        player1.getCardManager().deal(6);
+        player1.getCardManager().deal(7);
         player1.setTurn(true);
 
+        for(int i = 0; i < 25; i++){
+            player2.getCardManager().addCardToDeck(new CardRedDragon(handler, 1, 2));
+            player2.getCardManager().addCardToDeck(new CardSkeleton(handler, 9, 2));
+        }
+        player2.getCardManager().shuffle();
+        player2.getCardManager().deal(7);
     }
 
 
@@ -110,6 +116,7 @@ public class Battle {
         tileManager.tick();
         uiManager.tick();
         player1.tick();
+        player2.tick();
         entityManager.tick();
 
     }
@@ -128,6 +135,7 @@ public class Battle {
         entityManager.render(g);
         //Players & Their decks
         player1.render(g);
+        player2.render(g);
 
     }
 
@@ -158,6 +166,11 @@ public class Battle {
             player2.setTurn(false);
             player1.setTurn(true);
         }
+    }
+
+    public Player getCurrentPlayer(){
+        if(player1.isTurn()) return player1;
+        else return player2;
     }
 
     public Handler getHandler() {

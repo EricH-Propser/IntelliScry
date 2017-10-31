@@ -37,7 +37,7 @@ public class Player {
         this.id = id;
 
         this.cardManager = new CardManager(handler, this);
-//        handler.getController().setCardManager(cardManager);
+//        handler.getMouseController().setCardManager(cardManager);
         this.mana = 5;
 
     }

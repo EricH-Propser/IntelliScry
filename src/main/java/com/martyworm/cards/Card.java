@@ -4,6 +4,7 @@ package com.martyworm.cards;
 import com.martyworm.Handler.Handler;
 import com.martyworm.Player.Player;
 import com.martyworm.board.tiles.Tile;
+import com.martyworm.config.PropertiesManager;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -32,6 +33,7 @@ public class Card{
     private boolean hovering;
     protected boolean selected;
 
+    //consider an enum to replace the following 5 booleans.
     private boolean inHand, inGrave, inActive, inDeck;
     protected boolean casted = false;
 
@@ -63,22 +65,18 @@ public class Card{
     public void render(Graphics g){
 
         if (inHand || inActive) {
-            if (tapped) {
-                g.drawImage(images[2], xPos, yPos, width, height, null);
-            } else {
-                g.drawImage(images[1], xPos, yPos, width, height, null);
-
-            }
+            int imageIndex = tapped ? 2 : 1;
+            g.drawImage(images[imageIndex], xPos, yPos, width, height, null);
 
             if (hovering) {
                 g.drawImage(images[0], ZOOM_SPOT_X, ZOOM_SPOT_Y, null);
             }
         }
 
-
-        //Show Card Hit Boxes if needed
-//		g.setColor(Color.blue);
-//		g.fillRect((xPos), (yPos), hitBox.width, hitBox.height);
+        if(PropertiesManager.getInstance().getProperty("showCardHitbox")) {
+		    g.setColor(Color.blue);
+		    g.fillRect((xPos), (yPos), hitBox.width, hitBox.height);
+        }
 
     }
 
@@ -94,22 +92,18 @@ public class Card{
 
 
     public void onMouseMove(MouseEvent e) {
-        if(hitBox.contains(e.getX(), e.getY())){
-            hovering = true;
-        }else{
-            hovering = false;
-        }
+        hovering = hitBox.contains(e.getX(), e.getY());
     }
 
     public void onLeftMouseRelease(MouseEvent e){
-
-        onClick();
-        if(selected && hoveringOnRedTile()){
-            cast(selectCastingTile());
-            selected = false;
-            turnRedTilesOff(playerNumber);
+        onClick(); //why is this here?
+        if(!selected || !hoveringOnRedTile()) {
+            return;
         }
 
+        cast(selectCastingTile());
+        selected = false;
+        turnRedTilesOff(playerNumber);
     }
 
     public void onRightMouseRelease(MouseEvent e){
@@ -118,7 +112,7 @@ public class Card{
     }
 
 
-    private String checkLocation(){
+    private String checkLocation(){ //consider an enumeration rather than many booleans.
         if(inHand) return "In Hand";
         if(inDeck) return "In Deck";
         if(inGrave) return "In Grave";
@@ -127,14 +121,11 @@ public class Card{
     }
 
     protected void onClick() {
-
     }
     protected void onDeselect() {
-
     }
 
     protected void cast(Tile t){
-
     }
 
 
@@ -149,14 +140,8 @@ public class Card{
         return false;
     }
 
-    public boolean doesPlayerHaveEnoughMana(Player player){
+    public boolean doesPlayerHaveEnoughMana(Player player){ //this should be a method "canCast" on the player where the card is passed
         return ((player.getMana() - mana) >= 0);
-    }
-
-
-
-    public void toRemove(ArrayList<Card> list){
-        list.remove(this);
     }
 
     protected Tile selectCastingTile(){

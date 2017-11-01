@@ -11,7 +11,6 @@ public class MinionCard extends Card {
 
 
     public MinionCard(Handler handler, BufferedImage[] images, int id, int playerNumber){
-
         super(handler, images, id, playerNumber);
     }
 
@@ -81,8 +80,7 @@ public class MinionCard extends Card {
             handler.getBattle().getTile(296).setRedHighlight(false);
             handler.getBattle().getTile(297).setRedHighlight(false);
             handler.getBattle().getTile(298).setRedHighlight(false);
-        }
-        else if(playerId == 2){
+        } else if(playerId == 2){
             handler.getBattle().getTile(37).setRedHighlight(false);
             handler.getBattle().getTile(38).setRedHighlight(false);
             handler.getBattle().getTile(39).setRedHighlight(false);

@@ -9,8 +9,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class CardManager {
+
+    private static final int MAX_HAND_BEFORE_RESIZE = 9;
 
     private Handler handler;
     private ArrayList<Card> cards;
@@ -21,9 +24,7 @@ public class CardManager {
     public CardManager(Handler handler, Player player){
         this.handler = handler;
         this.player = player;
-
-        this.cards = new ArrayList<Card>();
-
+        this.cards = new ArrayList<>();
     }
 
     public void tick(){
@@ -31,13 +32,10 @@ public class CardManager {
             c.tick();
         }
 
-
         organizeHandForDisplay(sortAndUpdateHand());
         organizeActiveForDisplay(sortAndUpdateActive());
 
         turnOffRedTilesWhileNoCardSelected();
-
-
     }
 
     public void render(Graphics g){
@@ -47,17 +45,8 @@ public class CardManager {
 
     }
 
-
-
-    private boolean noneSelected(ArrayList<Card> list){
-        int count = 0;
-        for(Card c : list){
-            if(c.isSelected()){
-                count++;
-            }
-        }
-        if(count > 0) return false;
-        else return true;
+    public boolean noneSelected(List<Card> list){
+        return !list.stream().anyMatch(c-> c.isSelected());
     }
 
     public void addCardToDeck(Card card){
@@ -67,29 +56,30 @@ public class CardManager {
 
     public void deal(int handSize){
 
-        if(cards != null) {
+        if(cards == null) {
+            return;
+        }
 
-            for (int i = 0; i < handSize; i++) {
-                if (cards.get(i) != null) {
-                    cards.get(i).setInHand(true);
-                    cards.get(i).setInDeck(false);
-                }
+        for (int i = 0; i < handSize; i++) {
+            if (cards.get(i) != null) {
+                cards.get(i).setInHand(true);
+                cards.get(i).setInDeck(false);
             }
         }
 
     }
 
+    //this method doesn't make any sense given it's name - what does it do?
     public ArrayList<Card> sortAndUpdateHand(){
         //Worried about hand.size()... seems to iterate and go 0, 1, 2, 2, 2, 2, 2, etc
         ArrayList<Card> hand = new ArrayList<>();
 
         for(Card c : cards) {
 
-            if (c != null && c.isInHand()) {
-                if(!hand.contains(c)) {
+            if (c.isInHand()) {
+                if(!hand.contains(c)) { //perhaps make the hand a set instead of a list?
                     hand.add(c);
                 }
-
             }
             if(!c.isInHand() && hand.contains(c)){
                 hand.remove(c);
@@ -107,24 +97,16 @@ public class CardManager {
             if(c.getPlayerNumber() == 1) {
                 c.setxPos(320 + x);
                 c.setyPos(819);
-                if (hand.size() > 9) {
-                    x += Card.SMALL_CARD_WIDTH;
-                } else {
-                    x += Card.SMALL_CARD_WIDTH + 15;
-                }
-            }
-            else if(c.getPlayerNumber() == 2){
+                x += hand.size() > MAX_HAND_BEFORE_RESIZE ? Card.SMALL_CARD_WIDTH : (Card.SMALL_CARD_WIDTH + 15);
+            } else if(c.getPlayerNumber() == 2){
                 c.setxPos(320 + y);
                 c.setyPos(20);
-                if (hand.size() > 9) {
-                    y += Card.SMALL_CARD_WIDTH;
-                } else {
-                    y += Card.SMALL_CARD_WIDTH + 15;
-                }
+                y+= hand.size() > MAX_HAND_BEFORE_RESIZE ? Card.SMALL_CARD_HEIGHT : (Card.SMALL_CARD_HEIGHT + 15);
             }
         }
     }
 
+    //this name is misleading - where is there any sorting?
     public ArrayList<Card> sortAndUpdateActive(){
 
         ArrayList<Card> active = new ArrayList<>();
@@ -153,31 +135,18 @@ public class CardManager {
             if (c.getPlayerNumber() == 1) {
                 c.setxPos(1225 + x);
                 c.setyPos(510);
-                if (active.size() > 9) {
-                    x += Card.SMALL_CARD_WIDTH;
-                } else {
-                    x += Card.SMALL_CARD_WIDTH + 10;
-                }
-            }
-            else if(c.getPlayerNumber() == 2){
+                x += active.size() > MAX_HAND_BEFORE_RESIZE ? Card.SMALL_CARD_WIDTH : (Card.SMALL_CARD_WIDTH + 10);
+            } else if(c.getPlayerNumber() == 2){
                 c.setxPos(1225 + y);
                 c.setyPos(204);
-                if (active.size() > 9) {
-                    y += Card.SMALL_CARD_WIDTH;
-                } else {
-                    y += Card.SMALL_CARD_WIDTH + 10;
-                }
+                y += active.size() > MAX_HAND_BEFORE_RESIZE ? Card.SMALL_CARD_HEIGHT : (Card.SMALL_CARD_HEIGHT + 10);
             }
         }
     }
 
-    public void shuffle(){
-
+    public void shuffle(){ //this should belong to a deck class.
         Collections.shuffle(cards);
     }
-
-
-
 
 
     public void onMouseMove(MouseEvent e){

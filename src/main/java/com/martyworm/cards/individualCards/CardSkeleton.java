@@ -2,6 +2,7 @@ package com.martyworm.cards.individualCards;
 
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.Player.Player;
 import com.martyworm.board.tiles.Tile;
 import com.martyworm.cards.MinionCard;
 import com.martyworm.entities.Entity;
@@ -53,6 +54,9 @@ public class CardSkeleton extends MinionCard {
         turnRedTilesOff(playerNumber);
     }
 
+    private boolean manaCheck(Player p){
 
+        return true;
+    }
 
 }

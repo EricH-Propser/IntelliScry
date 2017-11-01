@@ -96,7 +96,7 @@ public class Card{
     }
 
     public void onLeftMouseRelease(MouseEvent e){
-        onClick(); //why is this here?
+        onClick();
         if(!selected || !hoveringOnRedTile()) {
             return;
         }
@@ -145,7 +145,8 @@ public class Card{
     }
 
     protected Tile selectCastingTile(){
-        return handler.getBattle().getTileManager().getSelectedTile();
+
+        return handler.getBattle().getSelectedTile();
     }
 
     protected void turnTilesRed(int playerId){}

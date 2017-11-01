@@ -32,8 +32,8 @@ public class EntityManager {
             if (e.getPlayerId() == handler.getBattle().getCurrentPlayer().getId()) {
                 if (e.isSelected()) {
 
-                    if (e.getMovesAvailable() > 0 && handler.getBattle().getTileManager().getSelectedTile() != null) {
-                        selectedTile = handler.getBattle().getTileManager().getSelectedTile();
+                    if (e.getMovesAvailable() > 0 && handler.getBattle().getSelectedTile() != null) {
+                        selectedTile = handler.getBattle().getSelectedTile();
                     }
                     showAvailableMoves(e);
                     showPathFinder(e);

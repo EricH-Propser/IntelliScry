@@ -33,7 +33,7 @@ public class CardManager {
         }
 
         organizeHandForDisplay(sortAndUpdateHand());
-        organizeActiveForDisplay(sortAndUpdateActive());
+        organizeActiveForDisplay(updateActive());
 
         turnOffRedTilesWhileNoCardSelected();
     }
@@ -69,7 +69,6 @@ public class CardManager {
 
     }
 
-    //this method doesn't make any sense given it's name - what does it do?
     public ArrayList<Card> sortAndUpdateHand(){
         //Worried about hand.size()... seems to iterate and go 0, 1, 2, 2, 2, 2, 2, etc
         ArrayList<Card> hand = new ArrayList<>();
@@ -106,8 +105,7 @@ public class CardManager {
         }
     }
 
-    //this name is misleading - where is there any sorting?
-    public ArrayList<Card> sortAndUpdateActive(){
+    public ArrayList<Card> updateActive(){
 
         ArrayList<Card> active = new ArrayList<>();
 
@@ -155,7 +153,7 @@ public class CardManager {
             c.onMouseMove(e);
         }
     }
-    public void onLeftMouseReleased(MouseEvent e){
+    public void onLeftMouseRelease(MouseEvent e){
         for(Card c : cards){
             //c.setSelected(false);
             for(Card d : cards) {
@@ -176,7 +174,7 @@ public class CardManager {
 
 
     }
-    public void onRightMouseReleased(MouseEvent e){
+    public void onRightMouseRelease(MouseEvent e){
         for(Card c : cards){
             c.onRightMouseRelease(e);
         }

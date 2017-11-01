@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputListener;
 
 
+import com.martyworm.board.TileManager;
 import com.martyworm.cards.CardManager;
 import com.martyworm.ui.UIManager;
 
@@ -16,6 +17,7 @@ public class MouseController implements MouseInputListener{
     private int mouseX, mouseY;
     private CardManager cardManager;
     private UIManager uiManager;
+    private TileManager tileManager;
     private Rectangle hitBox;
 
     public MouseController(){
@@ -31,6 +33,9 @@ public class MouseController implements MouseInputListener{
         this.cardManager = cardManager;
     }
 
+    public void setTileManager(TileManager tileManager){
+        this.tileManager = tileManager;
+    }
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -43,16 +48,26 @@ public class MouseController implements MouseInputListener{
 
         if(e.getButton() == MouseEvent.BUTTON1) {
             leftPressed = false;
+
+            //The following two calls must be in this order if the cardManager is to interact with the board
+            if(tileManager != null){
+                tileManager.onLeftMouseRelease(e);
+            }
+            if(cardManager != null){
+                cardManager.onLeftMouseRelease(e);
+            }
+
         }
         if(e.getButton() == MouseEvent.BUTTON3){
             rightPressed = false;
+            if(cardManager != null){
+                cardManager.onRightMouseRelease(e);
+            }
         }
         if(uiManager != null){
             uiManager.onMouseRelease(e);
         }
-        if(cardManager != null){
-            cardManager.onLeftMouseReleased(e);
-        }
+
 
     }
 
@@ -65,12 +80,17 @@ public class MouseController implements MouseInputListener{
         hitBox.x = mouseX;
         hitBox.y = mouseY;
 
+        //These three calls must be in this order
         if(uiManager != null){
             uiManager.onMouseMove(e);
+        }
+        if(tileManager != null) {
+            tileManager.onMouseMove(e);
         }
         if(cardManager != null) {
             cardManager.onMouseMove(e);
         }
+
     }
 
 

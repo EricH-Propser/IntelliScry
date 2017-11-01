@@ -18,6 +18,7 @@ import com.martyworm.ui.UIImageButton;
 import com.martyworm.ui.UIManager;
 
 import java.awt.Graphics;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +55,6 @@ public class Battle {
         player1 = new Player(handler, 1);
         player2 = new Player(handler, 2);
 
-
         this.entities = entityManager.getEntities();
 
 
@@ -62,6 +62,7 @@ public class Battle {
         String boardData = Board.loadBoardFile("worlds/world3.txt");
         List<Tile> tiles = Board.loadTiles(boardData);
         tileManager = new TileManager(handler, tiles);
+        handler.getController().setTileManager(tileManager);
 
         uiManager.addObject(new UIImageButton(1340, 840, 128, 64, Assets.endTurnButton, new ClickListener() {
             @Override
@@ -90,12 +91,11 @@ public class Battle {
 
 
     public void tick(){
-
-        tileManager.tick();
         uiManager.tick();
+        tileManager.tick();
+        entityManager.tick();
         player1.tick();
         player2.tick();
-        entityManager.tick();
 
     }
 
@@ -135,6 +135,13 @@ public class Battle {
     public Player getCurrentPlayer(){
         if(player1.isTurn()) return player1;
         else return player2;
+    }
+
+    public Tile getSelectedTile(){
+        if(tileManager.getSelectedTile() != null) {
+            return tileManager.getSelectedTile();
+        }
+        return null;
     }
 
     public Handler getHandler() {

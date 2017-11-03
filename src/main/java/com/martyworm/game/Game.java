@@ -8,6 +8,7 @@ import com.martyworm.board.TileManager;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
 import com.martyworm.gfx.Assets;
+import com.martyworm.gui.MouseCommand;
 import com.martyworm.gui.MouseController;
 import com.martyworm.gui.Gui;
 import com.martyworm.states.GameState;
@@ -58,7 +59,22 @@ public class Game implements Runnable {
         this.width = width;
         this.height = height;
         this.title = title;
-        this.mouseController = new MouseController();
+        this.mouseController = new MouseController(new MouseCommand() {
+            @Override
+            public void execute(Point point) {
+                //do left click call, probably Battle.handleLeftClick or whatever is going to own the managers
+            }
+        }, new MouseCommand() {
+            @Override
+            public void execute(Point point) {
+                //do right click call
+            }
+        }, new MouseCommand() {
+            @Override
+            public void execute(Point point) {
+                //handle on mouse moved, same as clicks.
+            }
+        });
 
 
     }
@@ -66,15 +82,14 @@ public class Game implements Runnable {
     private void init() throws LoadingException{ //initialize the game and starting pieces/tiles
         gui = new Gui(mouseController, title, width, height);
         gui.getFrame().addMouseListener(mouseController);
-        gui.getFrame().addMouseMotionListener((MouseMotionListener) mouseController);
+        gui.getFrame().addMouseMotionListener(mouseController);
         gui.getCanvas().addMouseListener(mouseController);
-        gui.getCanvas().addMouseMotionListener((MouseMotionListener) mouseController);
+        gui.getCanvas().addMouseMotionListener(mouseController);
 
         //load assets(images etc)
         Assets.init();
 
         handler = new Handler(this);
-
         gameState = new GameState(handler);
         menuState = new MenuState(handler);
         State.setState(menuState);
@@ -170,22 +185,6 @@ public class Game implements Runnable {
         }
     }
 
-//    public Tile getSelectedTile(){
-//        //Need to make sure not Null when calling this
-//        return tileManager.getSelectedTile();
-//    }
-
-
-    public Tile getTile(int tileId){
-        //Need to make sure not null when calling this
-        if (tileId < 0 || tileId >= tiles.size()) {
-            return null;
-        }else{
-            return tiles.get(tileId);
-
-        }
-
-    }
 
     public int getWidth() {
         return this.width;
@@ -197,10 +196,6 @@ public class Game implements Runnable {
 
     public MouseController getMouseController() {
         return mouseController;
-    }
-
-    public void setMouseController(MouseController mouseController) {
-        this.mouseController = mouseController;
     }
 
     public ArrayList<Entity> getEntities() {
@@ -218,25 +213,5 @@ public class Game implements Runnable {
     public void setTiles(ArrayList<Tile> tiles) {
         this.tiles = tiles;
     }
-
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
-
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
-
-
-    public TileManager getTileManager() {
-        return tileManager;
-    }
-
-    public void setTileManager(TileManager tileManager) {
-        this.tileManager = tileManager;
-    }
-
-
 
 }

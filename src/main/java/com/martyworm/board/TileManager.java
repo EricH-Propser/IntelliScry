@@ -3,6 +3,7 @@ package com.martyworm.board;
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
+import com.martyworm.gui.MouseController;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -26,7 +27,7 @@ public class TileManager {
     public void tick(){
         for(Tile t : tiles){
             t.tick();
-            booleansUpdate(t);
+            updateHighlightsInResponseToEntities(t);
         }
     }
 
@@ -36,7 +37,7 @@ public class TileManager {
         }
     }
 
-    private void booleansUpdate(Tile t){
+    private void updateHighlightsInResponseToEntities(Tile t){
         entityBooleanInput(t);
         //While a tile is occupied it shouldnt be semiHighlighted or selected
         if(t.isOccupied()){
@@ -84,11 +85,15 @@ public class TileManager {
             }
             if (t.isHovering()) {
                 t.setSelected(true);
+                t.onLeftMouseRelease(e);
             }
-            if (!hoveringOnTile()) {
+            if (!hoveringOnTile(handler.getMouseController())) {
                 t.setSelected(false);
             }
         }
+    }
+    public void onRightMouseRelease(MouseEvent e){
+
     }
 
     private void updateSemiHiTiles(Tile t){
@@ -102,9 +107,9 @@ public class TileManager {
         }
 
     }
-    private boolean hoveringOnTile(){
+    private boolean hoveringOnTile(MouseController mouseController){
         for(Tile t : tiles){
-            if(handler.getController().getHitBox().intersects(t.getHitBox())) {
+            if(mouseController.getHitBox().intersects(t.getHitBox())) {
                 return true;
             }
         }

@@ -13,11 +13,13 @@ import com.martyworm.cards.individualCards.CardSkeleton;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
 import com.martyworm.gfx.Assets;
+import com.martyworm.gui.MouseController;
 import com.martyworm.ui.ClickListener;
 import com.martyworm.ui.UIImageButton;
 import com.martyworm.ui.UIManager;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,10 +61,22 @@ public class Battle {
 
 
         //initialize board
-        String boardData = Board.loadBoardFile("worlds/world3.txt");
+        String boardData = "222222222222222222222200000000222000011112200200000222000000012" +
+                "200200000222000000012" +
+                "200200000000000000012" +
+                "200200000222000000002" +
+                "200222000220000000002" +
+                "200000000000000000002" +
+                "200000000000000000002" +
+                "200000000022000222002" +
+                "200000000222000002002" +
+                "210000000000000002002" +
+                "210000000222000002002" +
+                "210000000222000002002" +
+                "211110000222000000002" +
+                "222222222222222222222";
         List<Tile> tiles = Board.loadTiles(boardData);
         tileManager = new TileManager(handler, tiles);
-        handler.getController().setTileManager(tileManager);
 
         uiManager.addObject(new UIImageButton(1340, 840, 128, 64, Assets.endTurnButton, new ClickListener() {
             @Override
@@ -89,6 +103,26 @@ public class Battle {
 
     }
 
+
+    public void onMouseMove(MouseEvent e){
+        tileManager.onMouseMove(e);
+        entityManager.onMouseMove(e);
+        player1.getCardManager().onMouseMove(e);
+        player2.getCardManager().onMouseMove(e);
+    }
+
+    public void onLeftMouseRelease(MouseEvent e){
+        tileManager.onLeftMouseRelease(e);
+        entityManager.onLeftMouseRelease(e);
+        player1.getCardManager().onLeftMouseRelease(e);
+        player2.getCardManager().onLeftMouseRelease(e);
+    }
+    public void onRightMouseRelease(MouseEvent e){
+        tileManager.onRightMouseRelease(e);
+        entityManager.onRightMouseRelease(e);
+        player1.getCardManager().onRightMouseRelease(e);
+        player2.getCardManager().onRightMouseRelease(e);
+    }
 
     public void tick(){
         uiManager.tick();
@@ -138,11 +172,9 @@ public class Battle {
     }
 
     public Tile getSelectedTile(){
-        if(tileManager.getSelectedTile() != null) {
-            return tileManager.getSelectedTile();
-        }
-        return null;
+        return tileManager.getSelectedTile();
     }
+
 
     public Handler getHandler() {
         return handler;

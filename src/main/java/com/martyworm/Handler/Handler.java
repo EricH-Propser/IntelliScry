@@ -5,6 +5,8 @@ import com.martyworm.Battle.Battle;
 import com.martyworm.game.Game;
 import com.martyworm.gui.MouseController;
 
+import java.awt.event.MouseEvent;
+
 public class Handler {
 
     private Game game;
@@ -14,9 +16,23 @@ public class Handler {
         this.game = game;
     }
 
-    public MouseController getController(){
-        return game.getMouseController();
+    public void onMouseMove(MouseEvent e){
+        if(battle != null){
+            battle.onMouseMove(e);
+        }
     }
+
+    public void onLeftMouseRelease(MouseEvent e){
+        if(battle != null){
+            battle.onLeftMouseRelease(e);
+        }
+    }
+    public void onRightMouseRelease(MouseEvent e){
+        if(battle != null){
+            battle.onRightMouseRelease(e);
+        }
+    }
+
 
     public int getWidth(){
         return game.getWidth();
@@ -30,10 +46,6 @@ public class Handler {
         return game;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
     public Battle getBattle() {
         return battle;
     }
@@ -42,4 +54,7 @@ public class Handler {
         this.battle = battle;
     }
 
+    public MouseController getMouseController(){
+        return game.getMouseController();
+    }
 }

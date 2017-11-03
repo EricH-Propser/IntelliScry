@@ -5,8 +5,7 @@ import com.martyworm.board.tiles.Tile;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
-
-
+import java.awt.event.MouseEvent;
 
 
 public abstract class Entity {
@@ -27,7 +26,8 @@ public abstract class Entity {
     protected int width, height;
     protected int health;
     private boolean active = true;
-    protected boolean isSelected = false;
+    protected boolean hovering;
+    protected boolean selected = false;
     private int xMove, yMove;
     protected int xStart, yStart;
     protected int pixelsMovedTest;
@@ -57,6 +57,17 @@ public abstract class Entity {
 
     public abstract void die();
 
+    public abstract void onMouseMove(MouseEvent e);
+
+    public abstract void onLeftMouseRelease(MouseEvent e);
+
+    public abstract void onRightMouseRelease(MouseEvent e);
+
+    public abstract int getXDiff();
+
+    public abstract int getYDiff();
+
+    public abstract void setSelectedTileForMovement(Tile t);
 
     //If i need an entity to take damage
     public void hurt(int amt){
@@ -93,16 +104,8 @@ public abstract class Entity {
         return null;
     }
 
-    public int getXDiff(){
-        return Math.abs(xPos - xStart);
-    }
-    public int getYDiff(){
-        return Math.abs(yPos - yStart);
-    }
 
-    public void updateFluidMovePath(){
 
-    }
 
     public int getXPos() {
         return xPos;
@@ -153,11 +156,11 @@ public abstract class Entity {
     }
 
     public boolean isSelected() {
-        return isSelected;
+        return selected;
     }
 
     void setSelected(boolean isSelected) {
-        this.isSelected = isSelected;
+        this.selected = isSelected;
     }
 
     public Rectangle getHitBox() {
@@ -234,5 +237,12 @@ public abstract class Entity {
 
     public void setPlayerId(int playerId) {
         this.playerId = playerId;
+    }
+
+    public void setHovering(boolean hovering) {
+        this.hovering = hovering;
+    }
+    public boolean isHovering() {
+        return hovering;
     }
 }

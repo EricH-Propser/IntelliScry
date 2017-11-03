@@ -183,7 +183,7 @@ public class CardManager {
 
     private boolean hoveringOnCard(){
         for(Card c : cards){
-            if(handler.getController().getHitBox().intersects(c.getHitBox())) {
+            if(handler.getMouseController().getHitBox().intersects(c.getHitBox())) {
                 return true;
             }
         }

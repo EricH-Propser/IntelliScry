@@ -74,6 +74,7 @@ public class Game implements Runnable {
         Assets.init();
 
         handler = new Handler(this);
+        mouseController.setHandler(handler);
 
         gameState = new GameState(handler);
         menuState = new MenuState(handler);

@@ -3,9 +3,11 @@ package com.martyworm.entities.minion;
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
+import com.martyworm.entities.tools.PathFinder;
 import com.martyworm.gfx.Animation;
 
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -32,7 +34,7 @@ public class Minion extends Entity{
     private ArrayList<Tile> movePath;
 
 
-    //test
+    //tile
     private Tile selectedTile;
 
     public Minion(Handler handler, int id, BufferedImage[] images, int playerId) {
@@ -47,6 +49,16 @@ public class Minion extends Entity{
     public void tick() {
         animIdle.tick();
         animAttack.tick();
+
+        toggleXAndYMove();
+
+        if(selected){
+            showAvailableMoves();
+            showPathFinder();
+            if(selectedTile != null){
+                move(selectedTile);
+            }
+        }
 
         //attack
         //Inventory
@@ -67,19 +79,66 @@ public class Minion extends Entity{
 //		g.fillRect(hitBox.x, hitBox.y, hitBox.width, hitBox.height);
     }
 
+    public void onMouseMove(MouseEvent e){
+        hovering = hitBox.contains(e.getX(), e.getY());
+
+    }
+
+    public void onLeftMouseRelease(MouseEvent e){
+        if(handler.getBattle().getSelectedTile().isHovering() && handler.getBattle().getSelectedTile().isHighlighted()){
+            selectedTile = handler.getBattle().getSelectedTile();
+        }
+    }
+
+    public void onRightMouseRelease(MouseEvent e){
+        if(selected && !isMoving()) {    //deselects minion
+            selected = false;
+            handler.getBattle().getTileManager().getSemiHiTiles().clear();
+        }
+
+    }
+
+    private void move(Tile t){
+            //if minion is selected and the tile clicked does not equal Null
+            if(t.isHighlighted() && !t.isOccupied()){
+
+                if(getXDiff() >= getYDiff()){
+
+                    //make sure the tile clicked is not occupied, solid, and is hovering(available)
+                    if(checkTileBooleans(t)){
+                        moveX();
+                        toggleMoving();
+                        if(xMove == 0){
+                            moveY();
+                        }
+                    }
+                }
+
+                else if(getXDiff() < getYDiff()){
+
+                    //make sure the tile clicked is not occupied, solid, and is hovering(available)
+                    if(checkTileBooleans(t)){
+                        moveY();
+                        toggleMoving();
+
+                        if(getyMove() == 0){
+                            moveX();
+                        }
+
+                    }
+                }
+            }
+
+    }
 
     @Override
     public void moveX(){
-        selectedTile = handler.getBattle().getTileManager().getSelectedTile();
 
-        if(selectedTile != null){
-            if(xMove > 0){//moving left and right
-                if(xPos < selectedTile.getxPos()){
-                    xPos += xMove;
-                }
-                else if(xPos > selectedTile.getxPos()){
-                    xPos -= xMove;
-                }
+        if(xMove > 0) {//moving left and right
+            if (xPos < selectedTile.getxPos()) {
+                xPos += xMove;
+            } else if (xPos > selectedTile.getxPos()) {
+                xPos -= xMove;
             }
         }
     }
@@ -87,18 +146,16 @@ public class Minion extends Entity{
 
     @Override
     public void moveY(){
-        selectedTile = handler.getBattle().getTileManager().getSelectedTile();
 
-        if(selectedTile != null){
-            if(yMove > 0){//moving up and down
-                if(yPos < selectedTile.getyPos()){
-                    yPos += yMove;
-                }
-                else if(yPos > selectedTile.getyPos()){
-                    yPos -= yMove;
-                }
+        if(yMove > 0){//moving up and down
+            if(yPos < selectedTile.getyPos()){
+                yPos += yMove;
+            }
+            else if(yPos > selectedTile.getyPos()){
+                yPos -= yMove;
             }
         }
+
     }
 
 
@@ -118,7 +175,7 @@ public class Minion extends Entity{
     }
 
     public Tile getOccupiedTile(){
-        if(isSelected){
+        if(selected){
             for(Tile t : handler.getBattle().getTileManager().getTiles()){
                 if(t.isOccupied()){
                     return t;
@@ -139,13 +196,78 @@ public class Minion extends Entity{
 
     }
 
+    private void toggleXAndYMove(){
+
+        if(!selected){ //if minion isn't selected, xMove and yMove should be 0
+            xMove = 0;
+            yMove = 0;
+        }
+
+        //If minion is at the selectedTile position, x and y move should be 0
+        if(selectedTile != null){
+            if(yPos == selectedTile.getyPos()){
+                yMove = 0;
+            }
+            if(xPos == selectedTile.getxPos()){
+                xMove = 0;
+            }
+        }
+    }
+
+    private void showAvailableMoves(){
+
+        if(getOccupiedTileEnt() != null) {
+            Tile current = getOccupiedTileEnt();
+
+            int currentX = current.getxPos();
+            int currentY = current.getyPos();
+
+            int xDistance = Math.abs(xStart - currentX);
+            int yDistance = Math.abs(yStart - currentY);
+
+            int distance = (xDistance + yDistance) / 40;
+
+            setDistanceMoved(distance);
+            setMovesAvailable(Entity.DEFAULT_TILE_MOVEMENT - getDistanceMoved());
+            PathFinder.SemiHighlightToggle(handler, this, getMovesAvailable());
+        }
+    }
 
 
 
+
+    private void showPathFinder(){
+
+        //working without pathfinding
+        for(Tile t : handler.getBattle().getTileManager().getSemiHiTiles()) {
+            PathFinder.highlightPath(handler.getMouseController(), this, t);
+        }
+
+    }
+
+    private boolean checkTileBooleans(Tile selected){
+        //make sure the tile clicked is not occupied, solid, and is hovering(available)
+        return !selected.isOccupied() && !selected.isSolid() && selected.isSemiHighlited();
+    }
+
+    private void toggleMoving(){
+        if(xPos == selectedTile.getxPos()){
+            xMove = 0;
+
+        }
+        if(yPos == selectedTile.getyPos()){
+            yMove = 0;
+        }
+
+    }
 
 
     //Getters & Setters
 
+    @Override
+    public void setSelectedTileForMovement(Tile t){
+        selectedTile = t;
+    }
 
     @Override
     public int getXDiff(){
@@ -165,6 +287,7 @@ public class Minion extends Entity{
         }
         return false;
     }
+
 
     @Override
     public void setHitBoxX(int x){
@@ -188,6 +311,15 @@ public class Minion extends Entity{
         return speed;
     }
 
+    @Override
+    public boolean isHovering() {
+        return hovering;
+    }
+
+    @Override
+    public void setHovering(boolean hovering) {
+        this.hovering = hovering;
+    }
 
     @Override
     public int getxMove() {

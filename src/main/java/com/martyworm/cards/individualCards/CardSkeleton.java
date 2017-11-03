@@ -33,7 +33,7 @@ public class CardSkeleton extends MinionCard {
 
         if(manaCheck(handler.getBattle().getCurrentPlayer())) {
 
-            Minion m = handler.getBattle().getEntityManager().addMinion(new Skeleton(handler, 2, handler.getBattle().getCurrentPlayer().getId()));
+            Minion m = handler.getBattle().getEntityManager().addMinion(new Skeleton(handler, 2, handler.getBattle().getCurrentPlayer().getId(), this));
             handler.getBattle().getEntityManager().addEntity(m);
             m.setXPos(t.getxPos());
             m.setYPos(t.getyPos());

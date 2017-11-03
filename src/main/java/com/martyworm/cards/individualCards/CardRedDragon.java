@@ -3,6 +3,7 @@ package com.martyworm.cards.individualCards;
 
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.tiles.Tile;
+import com.martyworm.cards.Card;
 import com.martyworm.cards.MinionCard;
 import com.martyworm.entities.minion.Minion;
 import com.martyworm.entities.minion.RedDragon;
@@ -32,7 +33,7 @@ public class CardRedDragon extends MinionCard {
     public void cast(Tile t){
         if(doesPlayerHaveEnoughMana(handler.getBattle().getCurrentPlayer())) {
 
-            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1, handler.getBattle().getCurrentPlayer().getId()));
+            Minion m = handler.getBattle().getEntityManager().addMinion(new RedDragon(handler, 1, handler.getBattle().getCurrentPlayer().getId(), this));
             handler.getBattle().getEntityManager().addEntity(m);
             m.setXPos(t.getxPos());
             m.setYPos(t.getyPos());

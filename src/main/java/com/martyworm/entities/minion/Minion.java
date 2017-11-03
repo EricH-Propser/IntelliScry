@@ -2,9 +2,11 @@ package com.martyworm.entities.minion;
 
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.tiles.Tile;
+import com.martyworm.cards.Card;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.tools.PathFinder;
 import com.martyworm.gfx.Animation;
+import com.martyworm.gfx.Assets;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -18,10 +20,13 @@ public class Minion extends Entity{
     //Animations
     protected Animation animDown, animIdle, animAttack;
     private boolean isAttacking = false;
+    private BufferedImage[] actionPointImages;
 
     //id
     protected int id;
     protected String name;
+    private Card cardThatSummoned;
+    private BufferedImage[] cardImage;
 
     //Attack Timer
     private long lastAttackTimer;
@@ -37,9 +42,12 @@ public class Minion extends Entity{
     //tile
     private Tile selectedTile;
 
-    public Minion(Handler handler, int id, BufferedImage[] images, int playerId) {
+    public Minion(Handler handler, int id, BufferedImage[] images, int playerId, Card cardThatSummoned) {
         super(handler, id, playerId);
-        movePath = new ArrayList<Tile>();
+        this.cardThatSummoned = cardThatSummoned;
+        this.cardImage = cardThatSummoned.getImages();
+        movePath = new ArrayList<>();
+        actionPointImages = Assets.actionPoints;
         for(int i = 0; i < movesAvailable + 1; i++){
             movePath.add(i, null);
         }
@@ -49,6 +57,7 @@ public class Minion extends Entity{
     public void tick() {
         animIdle.tick();
         animAttack.tick();
+        numActionPoints = movesAvailable; //just testing the images
 
         toggleXAndYMove();
 
@@ -73,6 +82,10 @@ public class Minion extends Entity{
         else{
             g.drawImage(getCurrentAnimationFrame(), xPos -10/*offset the image size to hitBox*/, yPos - 10/*offset the image size to hitBox */, width-8, height-8, null);//should be width and height not ints
         }
+        if(hovering){
+            g.drawImage(cardImage[0], Card.ZOOM_SPOT_X, Card.ZOOM_SPOT_Y, null);
+        }
+        renderActionPoints(numActionPoints, g, hitBox);
 
         //VISUALS FOR HITBOX if needed
 //		g.setColor(Color.cyan);
@@ -261,6 +274,10 @@ public class Minion extends Entity{
 
     }
 
+
+    private void renderActionPoints(int aP, Graphics g, Rectangle hitBox){
+        g.drawImage(actionPointImages[aP], hitBox.x, hitBox.y + 25, 20, 13, null);
+    }
 
     //Getters & Setters
 

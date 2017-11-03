@@ -1,14 +1,15 @@
 package com.martyworm.entities.minion;
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.cards.Card;
 import com.martyworm.entities.Entity;
 import com.martyworm.gfx.Animation;
 import com.martyworm.gfx.Assets;
 
 public class Skeleton extends Minion {
 
-    public Skeleton(Handler handler, int id, int playerId) {
-        super(handler, id, Assets.skeleton_idle, playerId);
+    public Skeleton(Handler handler, int id, int playerId, Card cardThatSummoned) {
+        super(handler, id, Assets.skeleton_idle, playerId, cardThatSummoned);
 
         this.id = 9;
         this.name = "Skeleton";

@@ -19,8 +19,8 @@ public class Card{
     public static final int SMALL_CARD_WIDTH = 81;
 
 
-    protected static final int ZOOM_SPOT_X = 23;
-    protected static final int ZOOM_SPOT_Y = 300;
+    public static final int ZOOM_SPOT_X = 23;
+    public static final int ZOOM_SPOT_Y = 300;
 
     protected Handler handler;
 
@@ -275,5 +275,9 @@ public class Card{
 
     public void setPlayerNumber(int playerNumber) {
         this.playerNumber = playerNumber;
+    }
+
+    public BufferedImage[] getImages() {
+        return images;
     }
 }

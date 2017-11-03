@@ -20,7 +20,7 @@ public abstract class Entity {
     protected int playerId;
 
     protected Handler handler;
-    protected int speed;
+    protected int speed, numActionPoints;
     protected int movesAvailable, distanceMoved;
     protected int xPos, yPos;
     protected int width, height;

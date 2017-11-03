@@ -126,8 +126,7 @@ public class Battle {
         g.drawImage(Assets.backgroundImage, 0, 0, null);
         g.drawImage(Assets.guiOverlay, 0, 0, null);
 
-        //UI
-        uiManager.render(g);
+
         //Tiles
         tileManager.render(g);
         //Entities
@@ -135,6 +134,8 @@ public class Battle {
         //Players & Their decks
         player1.render(g);
         player2.render(g);
+        //UI
+        uiManager.render(g);
 
     }
 

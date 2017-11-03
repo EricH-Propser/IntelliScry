@@ -6,8 +6,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputListener;
 
 
+import com.martyworm.Handler.Handler;
 import com.martyworm.board.TileManager;
 import com.martyworm.cards.CardManager;
+import com.martyworm.entities.EntityManager;
 import com.martyworm.ui.UIManager;
 
 
@@ -15,9 +17,9 @@ public class MouseController implements MouseInputListener{
 
     private boolean leftPressed, rightPressed, clicked;
     private int mouseX, mouseY;
-    private CardManager cardManager;
     private UIManager uiManager;
-    private TileManager tileManager;
+
+    private Handler handler;
     private Rectangle hitBox;
 
     public MouseController(){
@@ -29,13 +31,11 @@ public class MouseController implements MouseInputListener{
         this.uiManager = uiManager;
     }
 
-    public void setCardManager(CardManager cardManager){
-        this.cardManager = cardManager;
+    public void setHandler(Handler handler){
+        this.handler = handler;
     }
 
-    public void setTileManager(TileManager tileManager){
-        this.tileManager = tileManager;
-    }
+
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -48,21 +48,16 @@ public class MouseController implements MouseInputListener{
 
         if(e.getButton() == MouseEvent.BUTTON1) {
             leftPressed = false;
-
-            //The following two calls must be in this order if the cardManager is to interact with the board
-            if(tileManager != null){
-                tileManager.onLeftMouseRelease(e);
+            if(handler != null) {
+                handler.onLeftMouseRelease(e);
             }
-            if(cardManager != null){
-                cardManager.onLeftMouseRelease(e);
-            }
-
         }
         if(e.getButton() == MouseEvent.BUTTON3){
             rightPressed = false;
-            if(cardManager != null){
-                cardManager.onRightMouseRelease(e);
+            if(handler != null){
+                handler.onRightMouseRelease(e);
             }
+
         }
         if(uiManager != null){
             uiManager.onMouseRelease(e);
@@ -84,12 +79,10 @@ public class MouseController implements MouseInputListener{
         if(uiManager != null){
             uiManager.onMouseMove(e);
         }
-        if(tileManager != null) {
-            tileManager.onMouseMove(e);
+        if(handler != null) {
+            handler.onMouseMove(e);
         }
-        if(cardManager != null) {
-            cardManager.onMouseMove(e);
-        }
+
 
     }
 

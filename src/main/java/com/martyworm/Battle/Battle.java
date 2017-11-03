@@ -13,11 +13,13 @@ import com.martyworm.cards.individualCards.CardSkeleton;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
 import com.martyworm.gfx.Assets;
+import com.martyworm.gui.MouseController;
 import com.martyworm.ui.ClickListener;
 import com.martyworm.ui.UIImageButton;
 import com.martyworm.ui.UIManager;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +64,6 @@ public class Battle {
         String boardData = Board.loadBoardFile("worlds/world3.txt");
         List<Tile> tiles = Board.loadTiles(boardData);
         tileManager = new TileManager(handler, tiles);
-        handler.getController().setTileManager(tileManager);
 
         uiManager.addObject(new UIImageButton(1340, 840, 128, 64, Assets.endTurnButton, new ClickListener() {
             @Override
@@ -90,6 +91,26 @@ public class Battle {
     }
 
 
+    public void onMouseMove(MouseEvent e){
+        tileManager.onMouseMove(e);
+        entityManager.onMouseMove(e);
+        player1.getCardManager().onMouseMove(e);
+        player2.getCardManager().onMouseMove(e);
+    }
+
+    public void onLeftMouseRelease(MouseEvent e){
+        tileManager.onLeftMouseRelease(e);
+        entityManager.onLeftMouseRelease(e);
+        player1.getCardManager().onLeftMouseRelease(e);
+        player2.getCardManager().onLeftMouseRelease(e);
+    }
+    public void onRightMouseRelease(MouseEvent e){
+        tileManager.onRightMouseRelease(e);
+        entityManager.onRightMouseRelease(e);
+        player1.getCardManager().onRightMouseRelease(e);
+        player2.getCardManager().onRightMouseRelease(e);
+    }
+
     public void tick(){
         uiManager.tick();
         tileManager.tick();
@@ -105,8 +126,7 @@ public class Battle {
         g.drawImage(Assets.backgroundImage, 0, 0, null);
         g.drawImage(Assets.guiOverlay, 0, 0, null);
 
-        //UI
-        uiManager.render(g);
+
         //Tiles
         tileManager.render(g);
         //Entities
@@ -114,6 +134,8 @@ public class Battle {
         //Players & Their decks
         player1.render(g);
         player2.render(g);
+        //UI
+        uiManager.render(g);
 
     }
 
@@ -138,11 +160,9 @@ public class Battle {
     }
 
     public Tile getSelectedTile(){
-        if(tileManager.getSelectedTile() != null) {
-            return tileManager.getSelectedTile();
-        }
-        return null;
+        return tileManager.getSelectedTile();
     }
+
 
     public Handler getHandler() {
         return handler;

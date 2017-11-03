@@ -21,7 +21,7 @@ public class UIManager {
 
     public void tick(){
         if(handler.getBattle() != null){
-            handler.getController().setUIManager(this);
+            handler.getMouseController().setUIManager(this);
         }
         for(UIObject o : objects){
             o.tick();

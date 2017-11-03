@@ -43,11 +43,7 @@ public class Player {
     }
 
     public void tick(){
-
         cardManager.tick();
-        if(turn){
-            handler.getController().setCardManager(cardManager);
-        }
     }
 
     public void render(Graphics g) {

@@ -9,15 +9,17 @@ public class Assets {
 
     public static BufferedImage[] skeleton_idle;
 
-    public static BufferedImage[] playButton, endTurnButton, manaBubble;
+    public static BufferedImage[] playButton, endTurnButton, manaBubble, actionPoints;
     public static BufferedImage[] rockTile2, dirtTile2, grassTile2, card_Skeleton, card_redDragon;
 
 
+    private static final int ACTION_POINT_WIDTH = 40;
+    private static final int ACTION_POINT_HEIGHT = 31;
 
     private static final int WIDTH = 30, HEIGHT = 30;
     private static final int WIDTH_P = 59, HEIGHT_P = 55;
     private static final int WIDTH_DRAG = 166, HEIGHT_DRAG = 147;
-    private static final int WIDTH_ORB = 52, HEIGHT_ORB = 49;
+
 
     private static final int FULL_CARD_HEIGHT = 353;
     private  static final int FULL_CARD_WIDTH = 245;
@@ -37,13 +39,14 @@ public class Assets {
         SpriteSheet card_redDragonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/card_RedDragon.png"));
         SpriteSheet skeletonSheet = new SpriteSheet(ImageLoader.loadImage("/textures/skellysheet.png"));
 
+        SpriteSheet actionPointSheet = new SpriteSheet(ImageLoader.loadImage("/textures/ActionPointSheet.png"));
         SpriteSheet manaBubbleSheet = new SpriteSheet(ImageLoader.loadImage("/textures/manaBubble2.png"));
 
         backgroundImage = ImageLoader.loadImage("/textures/mBackground1500x937.png");
         guiOverlay = ImageLoader.loadImage("/textures/guiTest.png");
 
 
-        //BUTTONS & MANA
+        //BUTTONS & MANA & MISC
         playButton = new BufferedImage[2];
         playButton[0] = buttonSheet.crop(0, 0, 60, 30);
         playButton[1] = buttonSheet.crop(60, 0, 60, 30);
@@ -61,7 +64,17 @@ public class Assets {
         manaBubble[4] = manaBubbleSheet.crop(432, 0, 107, 85);
         manaBubble[5] = manaBubbleSheet.crop(540, 0, 107, 85);
 
-
+        actionPoints = new BufferedImage[10];
+        actionPoints[0] = actionPointSheet.crop(0, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[1] = actionPointSheet.crop(40, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[2] = actionPointSheet.crop(80, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[3] = actionPointSheet.crop(120, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[4] = actionPointSheet.crop(160, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[5] = actionPointSheet.crop(200, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[6] = actionPointSheet.crop(240, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[7] = actionPointSheet.crop(280, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[8] = actionPointSheet.crop(320, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
+        actionPoints[9] = actionPointSheet.crop(360, 0, ACTION_POINT_WIDTH, ACTION_POINT_HEIGHT);
 
 
         //  TILES #################################################################

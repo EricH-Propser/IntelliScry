@@ -2,9 +2,11 @@ package com.martyworm.board.tiles;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
 import com.martyworm.Handler.Handler;
+import com.martyworm.entities.Entity;
 import com.martyworm.ui.ClickListener;
 
 
@@ -25,7 +27,7 @@ public class Tile {
     private boolean semiHighlited;
     private boolean highlighted = false;
     private boolean isOccupied = false;
-    private boolean isSelected = false;;
+    private boolean isSelected = false;
     private boolean redHighlight = false;
 
     //For Movement
@@ -88,7 +90,12 @@ public class Tile {
 
     }
 
+    public void onMouseMove(MouseEvent e){
+        hovering = hitBox.contains(e.getX(), e.getY());
+    }
+    public void onLeftMouseRelease(MouseEvent e){
 
+    }
 
     public boolean isOccupied() {
         return isOccupied;

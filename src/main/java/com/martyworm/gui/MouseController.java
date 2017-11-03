@@ -12,10 +12,7 @@ import com.martyworm.ui.UIManager;
 
 public class MouseController implements MouseInputListener{
 
-    private boolean leftPressed, rightPressed, clicked;
     private int mouseX, mouseY;
-    private CardManager cardManager;
-    private UIManager uiManager;
     private Rectangle hitBox;
 
     private MouseCommand leftClickCommand;
@@ -27,14 +24,6 @@ public class MouseController implements MouseInputListener{
         this.leftClickCommand = leftClickCommand;
         this.rightClickCommand = rightClickCommand;
         this.mouseMoveCommand = mouseMoveCommand;
-    }
-
-    public void setUIManager(UIManager uiManager){
-        this.uiManager = uiManager;
-    }
-
-    public void setCardManager(CardManager cardManager){
-        this.cardManager = cardManager;
     }
 
 
@@ -69,12 +58,8 @@ public class MouseController implements MouseInputListener{
 
 
     public void mouseMoved(MouseEvent e) {
-        mouseX = e.getX();
-        mouseY = e.getY();
 
-        hitBox.x = mouseX;
-        hitBox.y = mouseY;
-
+        mouseMoveCommand.execute(e.getPoint());
         /*
         if(uiManager != null){
             uiManager.onMouseMove(e);
@@ -104,12 +89,5 @@ public class MouseController implements MouseInputListener{
     public Rectangle getHitBox() {
         return this.hitBox;
     }
-    public boolean isLeftPressed(){
-        return leftPressed;
-    }
-    public boolean isRightPressed(){
-        return rightPressed;
-    }
-
 
 }

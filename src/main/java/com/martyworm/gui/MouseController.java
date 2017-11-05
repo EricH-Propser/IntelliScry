@@ -36,14 +36,11 @@ public class MouseController implements MouseInputListener{
     }
 
 
-
-    @Override
     public void mousePressed(MouseEvent e) {
         leftPressed = e.getButton() == MouseEvent.BUTTON1;
         rightPressed = e.getButton() == MouseEvent.BUTTON3;
     }
 
-    @Override
     public void mouseReleased(MouseEvent e) {
 
         if(e.getButton() == MouseEvent.BUTTON1) {
@@ -93,17 +90,14 @@ public class MouseController implements MouseInputListener{
     }
 
 
-    @Override
     public void mouseClicked(MouseEvent e) {
         clicked = true;
     }
 
-    @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
     }
 
-    @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
     }

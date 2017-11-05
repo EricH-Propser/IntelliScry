@@ -13,11 +13,14 @@ import com.martyworm.cards.individualCards.CardSkeleton;
 import com.martyworm.entities.Entity;
 import com.martyworm.entities.EntityManager;
 import com.martyworm.gfx.Assets;
+import com.martyworm.gui.MouseController;
 import com.martyworm.ui.ClickListener;
 import com.martyworm.ui.UIImageButton;
 import com.martyworm.ui.UIManager;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +57,6 @@ public class Battle {
         player1 = new Player(handler, 1);
         player2 = new Player(handler, 2);
 
-
         this.entities = entityManager.getEntities();
 
 
@@ -89,13 +91,32 @@ public class Battle {
     }
 
 
-    public void tick(){
+    public void onMouseMove(MouseEvent e){
+        tileManager.onMouseMove(e);
+        entityManager.onMouseMove(e);
+        player1.getCardManager().onMouseMove(e);
+        player2.getCardManager().onMouseMove(e);
+    }
 
-        tileManager.tick();
+    public void onLeftMouseRelease(MouseEvent e){
+        tileManager.onLeftMouseRelease(e);
+        entityManager.onLeftMouseRelease(e);
+        player1.getCardManager().onLeftMouseRelease(e);
+        player2.getCardManager().onLeftMouseRelease(e);
+    }
+    public void onRightMouseRelease(MouseEvent e){
+        tileManager.onRightMouseRelease(e);
+        entityManager.onRightMouseRelease(e);
+        player1.getCardManager().onRightMouseRelease(e);
+        player2.getCardManager().onRightMouseRelease(e);
+    }
+
+    public void tick(){
         uiManager.tick();
+        tileManager.tick();
+        entityManager.tick();
         player1.tick();
         player2.tick();
-        entityManager.tick();
 
     }
 
@@ -105,8 +126,7 @@ public class Battle {
         g.drawImage(Assets.backgroundImage, 0, 0, null);
         g.drawImage(Assets.guiOverlay, 0, 0, null);
 
-        //UI
-        uiManager.render(g);
+
         //Tiles
         tileManager.render(g);
         //Entities
@@ -114,6 +134,8 @@ public class Battle {
         //Players & Their decks
         player1.render(g);
         player2.render(g);
+        //UI
+        uiManager.render(g);
 
     }
 
@@ -136,6 +158,11 @@ public class Battle {
         if(player1.isTurn()) return player1;
         else return player2;
     }
+
+    public Tile getSelectedTile(){
+        return tileManager.getSelectedTile();
+    }
+
 
     public Handler getHandler() {
         return handler;

@@ -3,8 +3,10 @@ package com.martyworm.board;
 import com.martyworm.Handler.Handler;
 import com.martyworm.board.tiles.Tile;
 import com.martyworm.entities.Entity;
+import com.martyworm.gui.MouseController;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class TileManager {
     public void tick(){
         for(Tile t : tiles){
             t.tick();
-            getInput(t); //this seems like a really bad idea, this class should have 1 job
+            updateHighlightsInResponseToEntities(t);
         }
     }
 
@@ -35,10 +37,8 @@ public class TileManager {
         }
     }
 
-    private void getInput(Tile t){
+    private void updateHighlightsInResponseToEntities(Tile t){
         entityBooleanInput(t);
-        mouseBooleanInput(t);
-
         //While a tile is occupied it shouldnt be semiHighlighted or selected
         if(t.isOccupied()){
             t.setSelected(false);
@@ -71,21 +71,30 @@ public class TileManager {
         }
     }
 
-    private void mouseBooleanInput(Tile t){
-
-        t.setHovering(false);
-
-        if(handler.getController().getHitBox().intersects(t.getHitBox())){ //this should be passed in
-            t.setHovering(true);
-            if(handler.getController().isLeftPressed()){
-                for(Tile y : tiles){
-                    y.setSelected(false); //this is called in a loop, then we loop again, seems wasteful
+    public void onMouseMove(MouseEvent e){
+        for(Tile t : tiles){
+            t.onMouseMove(e);
+        }
+    }
+    public void onLeftMouseRelease(MouseEvent e) {
+        for (Tile t : tiles) {
+            for (Tile y : tiles) {
+                if (y.isHovering()) {
+                    t.setSelected(false);
                 }
+            }
+            if (t.isHovering()) {
                 t.setSelected(true);
+                t.onLeftMouseRelease(e);
+            }
+            if (!hoveringOnTile(handler.getMouseController())) {
+                t.setSelected(false);
             }
         }
     }
+    public void onRightMouseRelease(MouseEvent e){
 
+    }
 
     private void updateSemiHiTiles(Tile t){
         if(t.isSemiHighlited() && !semiHiTiles.contains(t)){ //consider a set instead of a list to remove duplicates
@@ -98,7 +107,14 @@ public class TileManager {
         }
 
     }
-
+    private boolean hoveringOnTile(MouseController mouseController){
+        for(Tile t : tiles){
+            if(mouseController.getHitBox().intersects(t.getHitBox())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     //Getters & Setters
     public Handler getHandler() {
